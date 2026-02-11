@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+    --primary: 220 15% 18%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 10% 96%;
+    --secondary-foreground: 220 15% 18%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 48 100% 50%;
+    --accent-foreground: 220 15% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 88%;
+    --input: 220 10% 88%;
+    --ring: 48 100% 50%;
+    --radius: 0.5rem;
+    
+    /* Custom AbateIQ Colors */
+    --graphite: 220 15% 18%;
+    --graphite-light: 220 12% 28%;
+    --graphite-dark: 220 18% 12%;
+    --steel: 220 10% 55%;
+    --steel-light: 220 10% 75%;
+    --safety-yellow: 48 100% 50%;
+    --safety-yellow-hover: 48 100% 45%;
+    --charcoal: 220 20% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-200;
+    background-color: hsl(var(--safety-yellow));
+    color: hsl(var(--charcoal));
+  }
+  .btn-primary:hover {
+    background-color: hsl(var(--safety-yellow-hover));
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg border-2 transition-all duration-200;
+    border-color: hsl(var(--steel-light));
+    color: hsl(var(--foreground));
+  }
+  .btn-secondary:hover {
+    border-color: hsl(var(--graphite));
+    background-color: hsl(var(--secondary));
+  }
+  
+  .btn-dark {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-200;
+    background-color: hsl(var(--graphite));
+    color: white;
+  }
+  .btn-dark:hover {
+    background-color: hsl(var(--graphite-light));
+    transform: translateY(-1px);
+  }
+  
+  .section-dark {
+    background: linear-gradient(180deg, hsl(var(--graphite-dark)) 0%, hsl(var(--graphite)) 100%);
+    color: white;
+  }
+  
+  .section-light {
+    @apply bg-white;
+  }
+  
+  .section-gray {
+    background-color: hsl(220 10% 97%);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--safety-yellow)) 0%, hsl(48 80% 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .card-shadow-lg {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .pricing-card-popular {
+    border: 2px solid hsl(var(--safety-yellow));
+    position: relative;
+  }
+  
+  .pricing-card-popular::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(var(--safety-yellow));
+    color: hsl(var(--charcoal));
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
