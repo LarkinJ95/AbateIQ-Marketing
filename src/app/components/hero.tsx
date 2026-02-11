@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import platformScreenshot from "figma:asset/768c10f1b83fa1b26591f519553e879a6ae1c7ee.png";
+import platformScreenshot from "../../assets/768c10f1b83fa1b26591f519553e879a6ae1c7ee.png";
 
 export function Hero() {
   return (
