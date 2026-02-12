@@ -11,6 +11,7 @@ interface SendEmailBinding {
 interface Env {
   ASSETS: AssetsBinding;
   DB?: D1Database;
+  APP_DASHBOARD_URL?: string;
   API_ORIGIN?: string;
   UPSTREAM_API_TOKEN?: string;
   CONTACT_TO_EMAIL?: string;
@@ -63,6 +64,7 @@ const AUTH_PATHS: Record<string, keyof Env> = {
 };
 
 const DEFAULT_API_ORIGIN_PLACEHOLDER = "https://api.abateiq.com";
+const DEFAULT_APP_DASHBOARD_URL = "https://app.abateiq.com";
 const AUTH_HASH_ALGO = "pbkdf2_sha256";
 const AUTH_HASH_DEFAULT_ITERATIONS = 100_000;
 
@@ -220,11 +222,19 @@ async function createStoredPasswordHash(password: string): Promise<string> {
   return `${AUTH_HASH_ALGO}$${AUTH_HASH_DEFAULT_ITERATIONS}$${bytesToBase64(salt)}$${bytesToBase64(hash)}`;
 }
 
-function createSessionPayload(user: { id: string; email: string; name?: string | null }, sessionId: string, expiresAtMs: number) {
+function createSessionPayload(
+  env: Env,
+  user: { id: string; email: string; name?: string | null },
+  sessionId: string,
+  expiresAtMs: number,
+) {
+  const dashboardUrl =
+    (env.APP_DASHBOARD_URL || "").trim() || DEFAULT_APP_DASHBOARD_URL;
+
   return {
     accessToken: sessionId,
     expiresAt: new Date(expiresAtMs).toISOString(),
-    dashboardUrl: "/app",
+    dashboardUrl,
     user: {
       id: user.id,
       email: user.email,
@@ -558,6 +568,7 @@ async function handleD1SignIn(request: Request, env: Env): Promise<Response> {
 
   return jsonResponse(
     createSessionPayload(
+      env,
       {
         id: user.user_id,
         email: user.email,
@@ -608,6 +619,7 @@ async function handleD1Trial(request: Request, env: Env): Promise<Response> {
 
     return jsonResponse(
       createSessionPayload(
+        env,
         {
           id: userId,
           email,

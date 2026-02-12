@@ -1,6 +1,7 @@
 # Cloudflare Worker local secrets/vars for `wrangler dev`
 # Copy to .dev.vars and customize.
 API_ORIGIN=
+APP_DASHBOARD_URL=https://app.abateiq.com
 UPSTREAM_API_TOKEN=
 CONTACT_TO_EMAIL=
 CONTACT_FROM_EMAIL=

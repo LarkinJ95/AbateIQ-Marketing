@@ -1,4 +1,4 @@
-export const DEFAULT_DASHBOARD_PATH = "/app";
+export const DEFAULT_DASHBOARD_PATH = "https://app.abateiq.com";
 
 export function getDashboardUrl(): string {
   return import.meta.env.VITE_DASHBOARD_URL || DEFAULT_DASHBOARD_PATH;
