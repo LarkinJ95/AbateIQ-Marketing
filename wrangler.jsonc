@@ -1,0 +1,59 @@
+{
+	"name": "abateiq-marketing",
+	"main": "./worker/index.ts",
+	"compatibility_date": "2026-02-11",
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "abateiq",
+      "database_id": "80d077ef-36ef-4d59-b404-15cf040d5911"
+    }
+  ],
+  "vars": {
+    "API_ORIGIN": "",
+		"CONTACT_TO_EMAIL": "",
+		"CONTACT_FROM_EMAIL": "",
+		"AUTH_LOGIN_PATH": "/auth/login",
+		"AUTH_FORGOT_PATH": "/auth/forgot-password",
+		"AUTH_TRIAL_PATH": "/auth/trial",
+		"CONTACT_UPSTREAM_PATH": "/marketing/contact"
+	},
+	"assets": {
+		"directory": "./dist",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": [
+			"/api/*"
+		]
+	},
+	"routes": [
+		{
+			"pattern": "www.abateiq.com/*",
+			"zone_name": "abateiq.com"
+		},
+		{
+			"pattern": "abateiq.com/*",
+			"zone_name": "abateiq.com"
+		},
+		{
+			"pattern": "abateiq.com",
+			"zone_name": "abateiq.com",
+			"custom_domain": true
+		},
+		{
+			"pattern": "www.abateiq.com",
+			"zone_name": "abateiq.com",
+			"custom_domain": true
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_id": "80d077ef-36ef-4d59-b404-15cf040d5911"
+		}
+	]
+}

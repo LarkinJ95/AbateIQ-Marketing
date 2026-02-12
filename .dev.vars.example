@@ -1,0 +1,10 @@
+# Cloudflare Worker local secrets/vars for `wrangler dev`
+# Copy to .dev.vars and customize.
+API_ORIGIN=
+UPSTREAM_API_TOKEN=
+CONTACT_TO_EMAIL=
+CONTACT_FROM_EMAIL=
+AUTH_LOGIN_PATH=/auth/login
+AUTH_FORGOT_PATH=/auth/forgot-password
+AUTH_TRIAL_PATH=/auth/trial
+CONTACT_UPSTREAM_PATH=/marketing/contact
