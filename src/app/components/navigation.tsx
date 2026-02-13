@@ -19,11 +19,11 @@ export function Navigation({ onLoginClick, onStartTrialClick }: NavigationProps)
           
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#product" className="text-gray-300 hover:text-white transition">
-              Product
+            <a href="#platform" className="text-gray-300 hover:text-white transition">
+              Platform
             </a>
-            <a href="#solutions" className="text-gray-300 hover:text-white transition">
-              Solutions
+            <a href="#operations" className="text-gray-300 hover:text-white transition">
+              Operations
             </a>
             <a href="#pricing" className="text-gray-300 hover:text-white transition">
               Pricing

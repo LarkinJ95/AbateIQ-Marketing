@@ -18,67 +18,61 @@ export function PricingSection({
       price: "$29",
       period: "/ user / month",
       billing: "Billed annually",
-      description: "For small teams managing basic surveys and monitoring.",
+      description: "For teams running core EHS operations workflows.",
       cta: "Start Free Trial",
       ctaVariant: "outline" as const,
       action: "trial" as PlanAction,
       features: [
-        { text: "Surveys & Inspections", included: true },
-        { text: "Air Monitoring Entry", included: true },
-        { text: "Basic Reporting", included: true },
-        { text: "Equipment Tracking", included: true },
-        { text: "3–5 seats", included: true },
-        { text: "Standard support", included: true },
-        { text: "NEA automation", included: false },
-        { text: "Exposure intelligence engine", included: false },
-        { text: "Trend dashboards", included: false }
+        { text: "Air monitoring + exceedance tracking", included: true },
+        { text: "Inspections & buildings", included: true },
+        { text: "Budgets module", included: true },
+        { text: "Reporting (PDF + Excel export)", included: true },
+        { text: "Equipment & personnel compliance", included: true },
+        { text: "NEAs & exposure trends", included: true },
+        { text: "Admin & organization controls", included: false },
+        { text: "Advanced role governance", included: false },
       ],
       popular: false,
-      color: "#10b981"
+      color: "#10b981",
     },
     {
       name: "Pro",
       price: "$69",
       period: "/ user / month",
       billing: "Billed annually",
-      description: "For active compliance programs.",
+      description: "For organizations that need stronger controls and auditability.",
       cta: "Start 14-Day Trial",
       ctaVariant: "default" as const,
       action: "trial" as PlanAction,
       features: [
         { text: "Everything in Starter", included: true },
-        { text: "Regulatory Exposure Matrix", included: true },
-        { text: "Automatic Exceedance Engine", included: true },
-        { text: "NEA Management", included: true },
-        { text: "Monitoring Recommendations", included: true },
-        { text: "Fit Test Tracking", included: true },
-        { text: "10–25 seats", included: true },
-        { text: "Audit export tools", included: true }
+        { text: "Admin & organization controls", included: true },
+        { text: "Role-based permissions + seat management", included: true },
+        { text: "Auditability workflows", included: true },
+        { text: "Expanded reporting controls", included: true },
+        { text: "Priority support", included: true },
       ],
       popular: true,
-      color: "#3b82f6"
+      color: "#3b82f6",
     },
     {
       name: "Business",
       price: "$119",
       period: "/ user / month",
       billing: "Billed annually",
-      description: "For larger EHS teams with multi-site operations.",
+      description: "For multi-site programs with heavier operational demands.",
       cta: "Talk to Sales",
       ctaVariant: "outline" as const,
       action: "sales" as PlanAction,
       features: [
         { text: "Everything in Pro", included: true },
-        { text: "Task-Based Exposure Profiles", included: true },
-        { text: "Smart Similarity Detection", included: true },
-        { text: "Exposure Trend Dashboards", included: true },
-        { text: "Multi-org support", included: true },
-        { text: "Advanced filters", included: true },
-        { text: "25+ seats", included: true },
-        { text: "Priority support", included: true }
+        { text: "Cross-site operational views", included: true },
+        { text: "Program-level reporting controls", included: true },
+        { text: "Operational governance support", included: true },
+        { text: "High-volume workflow support", included: true },
       ],
       popular: false,
-      color: "#8b5cf6"
+      color: "#8b5cf6",
     },
     {
       name: "Enterprise",
@@ -90,51 +84,69 @@ export function PricingSection({
       ctaVariant: "default" as const,
       action: "sales" as PlanAction,
       features: [
-        { text: "Unlimited seats", included: true },
-        { text: "White labeling", included: true },
-        { text: "API access", included: true },
+        { text: "Everything in Business", included: true },
+        { text: "Enterprise-only controls", included: true },
+        { text: "Contracted compliance SLAs", included: true },
+        { text: "Custom governance policies", included: true },
         { text: "Dedicated onboarding", included: true },
-        { text: "SLA & compliance guarantees", included: true },
-        { text: "Custom retention policy", included: true },
-        { text: "Enterprise analytics", included: true }
       ],
       popular: false,
       color: "#1f1f1f",
-      dark: true
-    }
+      dark: true,
+    },
   ];
 
-  const addOns = [
-    "Extended Data Retention (10+ years)",
-    "Audit Defense Package",
-    "Advanced Analytics Module",
-    "API Access"
+  const tierGates = [
+    {
+      label: "Starter and above",
+      items: [
+        "Air Monitoring",
+        "NEAs & Exposure Trends",
+        "Inspections & Buildings",
+        "Equipment & Personnel Compliance",
+        "Budgets",
+        "Reporting",
+      ],
+    },
+    {
+      label: "Pro and above",
+      items: [
+        "Admin & Organization Controls",
+        "Role-based permissions",
+        "Seat management and auditability",
+      ],
+    },
+    {
+      label: "Enterprise only",
+      items: [
+        "Custom governance controls",
+        "Enterprise compliance agreements",
+      ],
+    },
   ];
 
   return (
     <section id="pricing" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl mb-4 text-gray-900">
-            Simple, Transparent Pricing Built for Compliance Teams
+            Pricing That Maps to Real Platform Access
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Seat-based pricing with feature tiers that scale with your organization.
+            Feature availability is gated by tier to match operational and governance needs.
           </p>
         </div>
-        
-        {/* Pricing Cards */}
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {plans.map((plan, index) => (
-            <div 
+            <div
               key={index}
               className={`relative rounded-lg border-2 p-8 ${
-                plan.popular 
-                  ? 'border-[#3b82f6] shadow-xl scale-105 bg-white' 
-                  : plan.dark 
-                  ? 'border-gray-800 bg-[#2a2a2a] text-white'
-                  : 'border-gray-200 bg-white'
+                plan.popular
+                  ? "border-[#3b82f6] shadow-xl scale-105 bg-white"
+                  : plan.dark
+                  ? "border-gray-800 bg-[#2a2a2a] text-white"
+                  : "border-gray-200 bg-white"
               }`}
             >
               {plan.popular && (
@@ -143,58 +155,60 @@ export function PricingSection({
                   Most Popular
                 </div>
               )}
-              
+
               <div className="mb-6">
-                <h3 className={`text-2xl mb-2 ${plan.dark ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-2xl mb-2 ${plan.dark ? "text-white" : "text-gray-900"}`}>
                   {plan.name}
                 </h3>
                 <div className="mb-2">
-                  <span className={`text-4xl ${plan.dark ? 'text-white' : 'text-gray-900'}`}>
+                  <span className={`text-4xl ${plan.dark ? "text-white" : "text-gray-900"}`}>
                     {plan.price}
                   </span>
                   {plan.period && (
-                    <span className={`text-sm ml-2 ${plan.dark ? 'text-gray-400' : 'text-gray-600'}`}>
+                    <span className={`text-sm ml-2 ${plan.dark ? "text-gray-400" : "text-gray-600"}`}>
                       {plan.period}
                     </span>
                   )}
                 </div>
                 {plan.billing && (
-                  <p className={`text-sm ${plan.dark ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <p className={`text-sm ${plan.dark ? "text-gray-400" : "text-gray-600"}`}>
                     {plan.billing}
                   </p>
                 )}
-                <p className={`mt-4 text-sm ${plan.dark ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className={`mt-4 text-sm ${plan.dark ? "text-gray-300" : "text-gray-600"}`}>
                   {plan.description}
                 </p>
               </div>
-              
-              <Button 
+
+              <Button
                 className={`w-full mb-6 ${
                   plan.popular || plan.dark
-                    ? 'bg-[#fbbf24] hover:bg-[#f59e0b] text-black'
-                    : 'border-2 border-gray-300 hover:border-[#fbbf24]'
+                    ? "bg-[#fbbf24] hover:bg-[#f59e0b] text-black"
+                    : "border-2 border-gray-300 hover:border-[#fbbf24]"
                 }`}
                 variant={plan.ctaVariant}
                 onClick={plan.action === "trial" ? onStartTrialClick : onContactSalesClick}
               >
                 {plan.cta}
               </Button>
-              
+
               <div className="space-y-3">
                 {plan.features.map((feature, fIndex) => (
                   <div key={fIndex} className="flex items-start gap-2">
                     {feature.included ? (
-                      <Check className={`w-5 h-5 flex-shrink-0 ${
-                        plan.dark ? 'text-[#fbbf24]' : 'text-green-600'
-                      }`} />
+                      <Check className={`w-5 h-5 flex-shrink-0 ${plan.dark ? "text-[#fbbf24]" : "text-green-600"}`} />
                     ) : (
                       <X className="w-5 h-5 text-gray-400 flex-shrink-0" />
                     )}
-                    <span className={`text-sm ${
-                      feature.included 
-                        ? plan.dark ? 'text-gray-100' : 'text-gray-900'
-                        : 'text-gray-400'
-                    }`}>
+                    <span
+                      className={`text-sm ${
+                        feature.included
+                          ? plan.dark
+                            ? "text-gray-100"
+                            : "text-gray-900"
+                          : "text-gray-400"
+                      }`}
+                    >
                       {feature.text}
                     </span>
                   </div>
@@ -203,15 +217,21 @@ export function PricingSection({
             </div>
           ))}
         </div>
-        
-        {/* Add-ons */}
-        <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-8 max-w-4xl mx-auto">
-          <h3 className="text-2xl mb-6 text-gray-900">Optional Add-Ons:</h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            {addOns.map((addOn, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-[#fbbf24] flex-shrink-0" />
-                <span className="text-gray-700">{addOn}</span>
+
+        <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-8 max-w-5xl mx-auto">
+          <h3 className="text-2xl mb-6 text-gray-900">Tier Gate Reference</h3>
+          <div className="grid md:grid-cols-3 gap-5">
+            {tierGates.map((group) => (
+              <div key={group.label} className="bg-white border border-gray-200 rounded-lg p-5">
+                <h4 className="text-lg text-gray-900 mb-3">{group.label}</h4>
+                <ul className="space-y-2">
+                  {group.items.map((item) => (
+                    <li key={item} className="text-sm text-gray-700 flex items-start gap-2">
+                      <Check className="w-4 h-4 text-[#fbbf24] mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

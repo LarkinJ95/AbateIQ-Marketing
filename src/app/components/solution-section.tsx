@@ -1,37 +1,63 @@
-import { Gauge, FileCheck, AlertTriangle, Users, Target, Sparkles } from "lucide-react";
+import {
+  Gauge,
+  FileCheck,
+  Building2,
+  Wrench,
+  BadgeDollarSign,
+  FileSpreadsheet,
+  ShieldCheck,
+} from "lucide-react";
 
 export function SolutionSection() {
   const features = [
     {
       icon: Gauge,
-      title: "Air Monitoring + Exceedance Engine",
-      description: "Automatically calculate PEL, TWA, STEL, and EL thresholds with real-time exceedance alerts."
+      title: "Air Monitoring",
+      description:
+        "Track jobs, samples, exceedances, and generate compliance-ready reports.",
+      gate: "Starter and above",
     },
     {
       icon: FileCheck,
-      title: "NEA Automation",
-      description: "Generate compliant Negative Exposure Assessments with intelligent recommendations and defensible documentation."
+      title: "NEAs & Exposure Trends",
+      description:
+        "Document negative exposure assessments and analyze exposure patterns by role, task, and site.",
+      gate: "Starter and above",
     },
     {
-      icon: AlertTriangle,
-      title: "Regulatory Exposure Matrix (PEL / TWA / STEL / EL)",
-      description: "Built-in regulatory thresholds mapped to OSHA standards for every hazard type."
+      icon: Building2,
+      title: "Inspections & Buildings",
+      description:
+        "Manage building inventories, inspection history, and hazard sample logs.",
+      gate: "Starter and above",
     },
     {
-      icon: Target,
-      title: "Task-Based Exposure Profiles",
-      description: "Link exposure data to specific job tasks for precise compliance tracking and trend analysis."
+      icon: Wrench,
+      title: "Equipment & Personnel Compliance",
+      description:
+        "Track calibration history, usage, fit tests, and related compliance records.",
+      gate: "Starter and above",
     },
     {
-      icon: Users,
-      title: "Personnel Compliance Tracking",
-      description: "Manage fit tests, medical surveillance, training records, and certifications in one place."
+      icon: BadgeDollarSign,
+      title: "Budgets",
+      description:
+        "Create proposals with labor, equipment, disposal, and subcontractor rate tables.",
+      gate: "Starter and above",
     },
     {
-      icon: Sparkles,
-      title: "Smart Similarity Detection",
-      description: "AI-powered matching identifies similar work conditions to streamline NEA processes and reduce redundant monitoring."
-    }
+      icon: FileSpreadsheet,
+      title: "Reporting",
+      description: "Generate PDF reports and export to Excel for client and regulatory workflows.",
+      gate: "Starter and above",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Admin & Organization Controls",
+      description:
+        "Apply role-based permissions, seat management, and auditability controls across organizations.",
+      gate: "Pro and above",
+    },
   ];
 
   return (
@@ -39,11 +65,14 @@ export function SolutionSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl mb-4 text-gray-900">
-            AbateIQ Centralizes Your Exposure Intelligence
+            Full EHS Operations Platform
           </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            AbateIQ unifies monitoring, inspections, budgets, reporting, and admin controls in one operational system.
+          </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -60,6 +89,11 @@ export function SolutionSection() {
                 <p className="text-gray-600">
                   {feature.description}
                 </p>
+                <div className="mt-4">
+                  <span className="text-xs bg-blue-50 text-blue-700 border border-blue-100 px-2 py-1 rounded">
+                    {feature.gate}
+                  </span>
+                </div>
               </div>
             );
           })}

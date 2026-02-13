@@ -2,7 +2,10 @@ import { useMemo, useState } from "react";
 import { Navigation } from "./components/navigation";
 import { Hero } from "./components/hero";
 import { ProblemSection } from "./components/problem-section";
+import { PlatformOverviewSection } from "./components/platform-overview-section";
 import { SolutionSection } from "./components/solution-section";
+import { MissingModulesSection } from "./components/missing-modules-section";
+import { BuiltForSection } from "./components/built-for-section";
 import { DemoSection } from "./components/demo-section";
 import { PricingSection } from "./components/pricing-section";
 import { FAQSection } from "./components/faq-section";
@@ -79,7 +82,10 @@ export default function App() {
         onSeeDemoClick={() => scrollToSection("demo")}
       />
       <ProblemSection />
+      <PlatformOverviewSection />
       <SolutionSection />
+      <MissingModulesSection />
+      <BuiltForSection />
       <DemoSection />
       <PricingSection
         onStartTrialClick={() => openAuthDialog("trial")}

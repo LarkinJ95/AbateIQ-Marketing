@@ -17,10 +17,10 @@ export function Footer() {
           <div>
             <h4 className="text-white mb-4">Product</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#product" className="hover:text-[#fbbf24] transition">Features</a></li>
+              <li><a href="#platform" className="hover:text-[#fbbf24] transition">Platform Overview</a></li>
               <li><a href="#pricing" className="hover:text-[#fbbf24] transition">Pricing</a></li>
-              <li><a href="#solutions" className="hover:text-[#fbbf24] transition">Integrations</a></li>
-              <li><a href="#faq" className="hover:text-[#fbbf24] transition">Security</a></li>
+              <li><a href="#operations" className="hover:text-[#fbbf24] transition">Operations Modules</a></li>
+              <li><a href="#built-for" className="hover:text-[#fbbf24] transition">Built For</a></li>
             </ul>
           </div>
           
