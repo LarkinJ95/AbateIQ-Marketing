@@ -9,3 +9,4 @@ AUTH_LOGIN_PATH=/auth/login
 AUTH_FORGOT_PATH=/auth/forgot-password
 AUTH_TRIAL_PATH=/auth/trial
 CONTACT_UPSTREAM_PATH=/marketing/contact
+WAITLIST_UPSTREAM_PATH=/marketing/waitlist

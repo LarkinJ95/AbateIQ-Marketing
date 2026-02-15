@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Navigation } from "./components/navigation";
 import { Hero } from "./components/hero";
 import { IOSReleaseSection } from "./components/ios-release-section";
+import { WaitlistDialog } from "./components/waitlist-dialog";
 import { ProblemSection } from "./components/problem-section";
 import { PlatformOverviewSection } from "./components/platform-overview-section";
 import { SolutionSection } from "./components/solution-section";
@@ -21,6 +22,7 @@ import { getDashboardUrl } from "../lib/env";
 export default function App() {
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [authDialogView, setAuthDialogView] = useState<ViewType>("signin");
+  const [waitlistDialogOpen, setWaitlistDialogOpen] = useState(false);
   const [session, setSession] = useState<AuthSession | null>(() => readSession());
   const isDashboardRoute = useMemo(
     () => window.location.pathname.startsWith("/app"),
@@ -83,7 +85,7 @@ export default function App() {
         onSeeDemoClick={() => scrollToSection("demo")}
       />
       <IOSReleaseSection
-        onNotifyClick={() => scrollToSection("contact")}
+        onNotifyClick={() => setWaitlistDialogOpen(true)}
         onStartTrialClick={() => openAuthDialog("trial")}
       />
       <ProblemSection />
@@ -104,6 +106,10 @@ export default function App() {
         onOpenChange={setAuthDialogOpen}
         initialView={authDialogView}
         onAuthSuccess={handleAuthSuccess}
+      />
+      <WaitlistDialog
+        open={waitlistDialogOpen}
+        onOpenChange={setWaitlistDialogOpen}
       />
     </div>
   );

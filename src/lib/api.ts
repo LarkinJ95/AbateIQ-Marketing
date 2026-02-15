@@ -11,6 +11,17 @@ export interface ContactSubmission {
   message?: string;
 }
 
+export interface WaitlistSubmission {
+  name: string;
+  organization: string;
+  email: string;
+  role?: string;
+  phone?: string;
+  teamSize?: string;
+  notes?: string;
+  source?: string;
+}
+
 export interface TrialPayload {
   name: string;
   email: string;
@@ -103,6 +114,15 @@ export async function submitContactSubmission(
   payload: ContactSubmission,
 ): Promise<ApiOkResponse> {
   return apiRequest<ApiOkResponse>("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function submitWaitlistSubmission(
+  payload: WaitlistSubmission,
+): Promise<ApiOkResponse> {
+  return apiRequest<ApiOkResponse>("/api/waitlist", {
     method: "POST",
     body: JSON.stringify(payload),
   });

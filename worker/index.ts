@@ -20,6 +20,7 @@ interface Env {
   AUTH_FORGOT_PATH?: string;
   AUTH_TRIAL_PATH?: string;
   CONTACT_UPSTREAM_PATH?: string;
+  WAITLIST_UPSTREAM_PATH?: string;
   EMAIL?: SendEmailBinding;
 }
 
@@ -31,6 +32,17 @@ interface ContactSubmission {
   companySize: string;
   primaryHazard: string;
   message?: string;
+}
+
+interface WaitlistSubmission {
+  name: string;
+  organization: string;
+  email: string;
+  role?: string;
+  phone?: string;
+  teamSize?: string;
+  notes?: string;
+  source?: string;
 }
 
 interface AuthPayload {
@@ -368,6 +380,30 @@ function validateContact(payload: ContactSubmission | null): string | null {
   return null;
 }
 
+function validateWaitlist(payload: WaitlistSubmission | null): string | null {
+  if (!payload) {
+    return "Invalid JSON payload.";
+  }
+
+  if (!String(payload.name || "").trim()) {
+    return "Missing required field: name";
+  }
+
+  if (!String(payload.organization || "").trim()) {
+    return "Missing required field: organization";
+  }
+
+  if (!String(payload.email || "").trim()) {
+    return "Missing required field: email";
+  }
+
+  if (!looksLikeEmail(payload.email)) {
+    return "Invalid email address.";
+  }
+
+  return null;
+}
+
 async function sendContactEmail(payload: ContactSubmission, env: Env): Promise<void> {
   if (!env.EMAIL || !env.CONTACT_TO_EMAIL || !env.CONTACT_FROM_EMAIL) {
     throw new Error("Missing email binding or destination/sender configuration.");
@@ -384,6 +420,40 @@ async function sendContactEmail(payload: ContactSubmission, env: Env): Promise<v
     `Company Size: ${payload.companySize}`,
     `Primary Hazard: ${payload.primaryHazard}`,
     `Message: ${payload.message || "(none)"}`,
+  ].join("\n");
+
+  const rawEmail = [
+    `From: AbateIQ Website <${env.CONTACT_FROM_EMAIL}>`,
+    `To: ${env.CONTACT_TO_EMAIL}`,
+    `Subject: ${subject}`,
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=UTF-8",
+    "",
+    textBody,
+  ].join("\r\n");
+
+  await env.EMAIL.send(
+    new EmailMessage(env.CONTACT_FROM_EMAIL, env.CONTACT_TO_EMAIL, rawEmail),
+  );
+}
+
+async function sendWaitlistEmail(payload: WaitlistSubmission, env: Env): Promise<void> {
+  if (!env.EMAIL || !env.CONTACT_TO_EMAIL || !env.CONTACT_FROM_EMAIL) {
+    throw new Error("Missing email binding or destination/sender configuration.");
+  }
+
+  const subject = `New AbateIQ iOS waitlist signup: ${payload.organization}`;
+  const textBody = [
+    "New iOS waitlist submission",
+    "",
+    `Name: ${payload.name}`,
+    `Organization: ${payload.organization}`,
+    `Email: ${payload.email}`,
+    `Role: ${payload.role || "(none)"}`,
+    `Phone: ${payload.phone || "(none)"}`,
+    `Team Size: ${payload.teamSize || "(none)"}`,
+    `Notes: ${payload.notes || "(none)"}`,
+    `Source: ${payload.source || "ios-release-modal"}`,
   ].join("\n");
 
   const rawEmail = [
@@ -419,6 +489,30 @@ async function saveContactToD1(payload: ContactSubmission, env: Env): Promise<vo
       payload.companySize,
       payload.primaryHazard,
       payload.message?.trim() || null,
+      new Date().toISOString(),
+    )
+    .run();
+}
+
+async function saveWaitlistToD1(payload: WaitlistSubmission, env: Env): Promise<void> {
+  if (!env.DB) {
+    throw new Error("D1 binding is not configured.");
+  }
+
+  await env.DB.prepare(
+    `INSERT INTO waitlist_submissions
+      (name, organization, email, role, phone, team_size, notes, source, created_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+  )
+    .bind(
+      payload.name.trim(),
+      payload.organization.trim(),
+      normalizeEmail(payload.email),
+      payload.role?.trim() || null,
+      payload.phone?.trim() || null,
+      payload.teamSize?.trim() || null,
+      payload.notes?.trim() || null,
+      payload.source?.trim() || "ios-release-modal",
       new Date().toISOString(),
     )
     .run();
@@ -511,6 +605,99 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
   return jsonResponse({
     ok: true,
     message: "Contact request received.",
+    deliveredToUpstream,
+    deliveredByEmail,
+    storedInD1,
+  });
+}
+
+async function handleWaitlist(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "POST") {
+    return jsonResponse({ ok: false, message: "Method not allowed." }, 405);
+  }
+
+  const payload = await parseJsonBody<WaitlistSubmission>(request);
+  const validationError = validateWaitlist(payload);
+  if (validationError) {
+    return jsonResponse({ ok: false, message: validationError }, 400);
+  }
+
+  const apiOrigin = getConfiguredApiOrigin(env);
+  const configuredForUpstream = Boolean(apiOrigin);
+  const configuredForEmail = Boolean(env.EMAIL && env.CONTACT_TO_EMAIL && env.CONTACT_FROM_EMAIL);
+  const configuredForD1 = Boolean(env.DB);
+
+  if (!configuredForUpstream && !configuredForEmail && !configuredForD1) {
+    return jsonResponse(
+      {
+        ok: false,
+        message: "No waitlist handlers configured. Configure API_ORIGIN, EMAIL binding, or D1 DB.",
+      },
+      503,
+    );
+  }
+
+  const errors: string[] = [];
+  let deliveredToUpstream = false;
+  let deliveredByEmail = false;
+  let storedInD1 = false;
+
+  if (configuredForUpstream) {
+    try {
+      const upstreamPath = env.WAITLIST_UPSTREAM_PATH || "/marketing/waitlist";
+      const upstreamResponse = await fetch(buildUpstreamUrl(apiOrigin!, upstreamPath), {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          ...(env.UPSTREAM_API_TOKEN
+            ? { authorization: `Bearer ${env.UPSTREAM_API_TOKEN}` }
+            : {}),
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!upstreamResponse.ok) {
+        errors.push(`Upstream API returned ${upstreamResponse.status}.`);
+      } else {
+        deliveredToUpstream = true;
+      }
+    } catch {
+      errors.push("Upstream API request failed.");
+    }
+  }
+
+  if (configuredForEmail) {
+    try {
+      await sendWaitlistEmail(payload!, env);
+      deliveredByEmail = true;
+    } catch {
+      errors.push("Email delivery failed. Verify Email Routing, sender domain, and destination address.");
+    }
+  }
+
+  if (configuredForD1) {
+    try {
+      await saveWaitlistToD1(payload!, env);
+      storedInD1 = true;
+    } catch {
+      errors.push("D1 waitlist storage failed. Ensure waitlist_submissions table exists.");
+    }
+  }
+
+  if (!deliveredToUpstream && !deliveredByEmail && !storedInD1) {
+    return jsonResponse(
+      {
+        ok: false,
+        message: "Waitlist submission failed.",
+        errors,
+      },
+      502,
+    );
+  }
+
+  return jsonResponse({
+    ok: true,
+    message: "Waitlist submission received.",
     deliveredToUpstream,
     deliveredByEmail,
     storedInD1,
@@ -733,6 +920,10 @@ export default {
 
     if (url.pathname === "/api/contact") {
       return handleContact(request, env);
+    }
+
+    if (url.pathname === "/api/waitlist") {
+      return handleWaitlist(request, env);
     }
 
     if (url.pathname in AUTH_PATHS) {

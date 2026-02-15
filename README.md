@@ -53,6 +53,7 @@ npm run cf:dev
 - `AUTH_FORGOT_PATH`
 - `AUTH_TRIAL_PATH`
 - `CONTACT_UPSTREAM_PATH`
+- `WAITLIST_UPSTREAM_PATH`
 - `CONTACT_TO_EMAIL`
 - `CONTACT_FROM_EMAIL`
 
@@ -92,12 +93,21 @@ npm run cf:deploy
 - `POST /api/auth/forgot-password` (proxied to upstream)
 - `POST /api/auth/trial` (proxied to upstream)
 - `POST /api/contact`
+- `POST /api/waitlist`
 
 `/api/contact` behavior:
 
 - Validates payload
 - Sends to upstream `CONTACT_UPSTREAM_PATH` when `API_ORIGIN` is configured
 - Sends email when `EMAIL` binding and contact addresses are configured
+- Succeeds if at least one delivery path succeeds
+
+`/api/waitlist` behavior:
+
+- Validates payload (`name`, `organization`, `email` required)
+- Sends to upstream `WAITLIST_UPSTREAM_PATH` when `API_ORIGIN` is configured
+- Sends email when `EMAIL` binding and contact addresses are configured
+- Stores in D1 `waitlist_submissions` when `DB` binding exists
 - Succeeds if at least one delivery path succeeds
 
 Auth behavior:
@@ -111,6 +121,7 @@ Auth behavior:
 - Trial/signup now calls API and stores session
 - Protected shell route at `/app` checks local session
 - Contact form now submits to `/api/contact` with error/success states
+- iOS waitlist button opens modal and submits to `/api/waitlist`
 - Primary CTA buttons and nav/footer links are wired
 
 ## Contact Form Troubleshooting
@@ -134,4 +145,5 @@ Apply schema:
 
 ```bash
 npx wrangler d1 execute abateiq --file=./worker/sql/001_init.sql --remote
+npx wrangler d1 execute abateiq --file=./worker/sql/002_waitlist.sql --remote
 ```
