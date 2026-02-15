@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Navigation } from "./components/navigation";
 import { Hero } from "./components/hero";
+import { IOSReleaseSection } from "./components/ios-release-section";
 import { ProblemSection } from "./components/problem-section";
 import { PlatformOverviewSection } from "./components/platform-overview-section";
 import { SolutionSection } from "./components/solution-section";
@@ -80,6 +81,10 @@ export default function App() {
       <Hero
         onStartTrialClick={() => openAuthDialog("trial")}
         onSeeDemoClick={() => scrollToSection("demo")}
+      />
+      <IOSReleaseSection
+        onNotifyClick={() => scrollToSection("contact")}
+        onStartTrialClick={() => openAuthDialog("trial")}
       />
       <ProblemSection />
       <PlatformOverviewSection />

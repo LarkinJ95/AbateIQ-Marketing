@@ -22,6 +22,9 @@ export function Navigation({ onLoginClick, onStartTrialClick }: NavigationProps)
             <a href="#platform" className="text-gray-300 hover:text-white transition">
               Platform
             </a>
+            <a href="#ios-release" className="text-gray-300 hover:text-white transition">
+              iOS Release
+            </a>
             <a href="#operations" className="text-gray-300 hover:text-white transition">
               Operations
             </a>
