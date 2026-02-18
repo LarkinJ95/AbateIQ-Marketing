@@ -3,10 +3,10 @@ import platformScreenshot from "../../assets/768c10f1b83fa1b26591f519553e879a6ae
 
 interface HeroProps {
   onStartTrialClick: () => void;
-  onSeeDemoClick: () => void;
+  onViewPricingClick: () => void;
 }
 
-export function Hero({ onStartTrialClick, onSeeDemoClick }: HeroProps) {
+export function Hero({ onStartTrialClick, onViewPricingClick }: HeroProps) {
   return (
     <section id="hero" className="relative bg-[#2a2a2a] text-white overflow-hidden">
       {/* Subtle background pattern */}
@@ -32,16 +32,22 @@ export function Hero({ onStartTrialClick, onSeeDemoClick }: HeroProps) {
               className="bg-[#fbbf24] hover:bg-[#f59e0b] text-black px-8"
               onClick={onStartTrialClick}
             >
-              Start Free Trial
+              Start for Free Today
             </Button>
             <Button 
               size="lg"
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-black bg-white/10"
-              onClick={onSeeDemoClick}
+              onClick={onViewPricingClick}
             >
-              See It In Action
+              View Pricing / Open App
             </Button>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-2 text-sm text-gray-300">
+            <p>NEAs + Budgets available in Starter and above.</p>
+            <p>Regulatory Matrix editing available in Pro and above.</p>
+            <p>Multi-org/API available in Enterprise.</p>
           </div>
         </div>
         

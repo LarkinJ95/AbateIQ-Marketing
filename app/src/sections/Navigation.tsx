@@ -56,10 +56,10 @@ export default function Navigation() {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <a
-              href="#contact"
+              href="#pricing"
               className="inline-flex items-center px-5 py-2.5 bg-safety-yellow text-graphite-dark text-sm font-semibold rounded-lg hover:bg-safety-yellow-hover transition-colors"
             >
-              Start Free Trial
+              Start for Free Today
             </a>
           </div>
 
@@ -88,11 +88,11 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="#pricing"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-center px-5 py-3 bg-safety-yellow text-graphite-dark text-sm font-semibold rounded-lg mt-4"
             >
-              Start Free Trial
+              Start for Free Today
             </a>
           </div>
         </div>

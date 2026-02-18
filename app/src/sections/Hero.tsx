@@ -41,19 +41,25 @@ export default function Hero() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <a
-              href="#contact"
+              href="#pricing"
               className="inline-flex items-center gap-2 px-8 py-4 bg-safety-yellow text-graphite-dark font-semibold rounded-lg hover:bg-safety-yellow-hover transition-all hover:-translate-y-0.5"
             >
-              Start Free Trial
+              Start for Free Today
               <ArrowRight size={18} />
             </a>
             <a
-              href="#demo"
+              href="#pricing"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-all"
             >
               <Play size={18} className="fill-current" />
-              See It In Action
+              View Pricing / Open App
             </a>
+          </div>
+
+          <div className="mb-12 space-y-2 text-sm text-gray-300">
+            <p>NEAs + Budgets available in Starter and above.</p>
+            <p>Regulatory Matrix editing available in Pro and above.</p>
+            <p>Multi-org/API available in Enterprise.</p>
           </div>
         </div>
 

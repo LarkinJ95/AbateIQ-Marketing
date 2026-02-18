@@ -1,35 +1,72 @@
-import { Building2, BriefcaseBusiness, ClipboardCheck, Coins, Factory } from "lucide-react";
+import {
+  ClipboardList,
+  Gauge,
+  SearchCheck,
+  Wrench,
+  FileCheck,
+  LineChart,
+  BadgeDollarSign,
+  Settings2,
+  Briefcase,
+  FileSpreadsheet,
+  ShieldCheck,
+} from "lucide-react";
 
 const modules = [
   {
-    icon: Factory,
-    title: "Monitoring",
-    description:
-      "Manage air monitoring jobs, sample collection workflows, exceedance tracking, and compliance-ready reporting.",
+    icon: ClipboardList,
+    title: "Surveys",
+    description: "Survey creation and editing with FAs, HAs, samples, photos, observations, floor plans, and reports.",
   },
   {
-    icon: Building2,
+    icon: Gauge,
+    title: "Air Monitoring",
+    description: "Core monitoring workflows for jobs, samples, exceedance tracking, and defensible records.",
+  },
+  {
+    icon: SearchCheck,
     title: "Inspections",
-    description:
-      "Track buildings, inspection history, hazard sample logs, and inventory status over time.",
+    description: "Inspection workflows with building history and hazard documentation.",
   },
   {
-    icon: ClipboardCheck,
-    title: "Operations",
-    description:
-      "Run day-to-day EHS workflows including NEAs, exposure trend analysis, equipment, and personnel compliance.",
+    icon: Wrench,
+    title: "Equipment",
+    description: "Equipment inventory, calibration, and operational tracking.",
   },
   {
-    icon: Coins,
+    icon: FileCheck,
+    title: "NEAs",
+    description: "Negative exposure assessment management in Starter and above.",
+  },
+  {
+    icon: LineChart,
+    title: "Exposure Trends",
+    description: "Trend dashboards and exposure analytics in Starter and above.",
+  },
+  {
+    icon: BadgeDollarSign,
     title: "Budgets",
-    description:
-      "Build proposals using labor, equipment, disposal, and subcontractor rate tables tied to real operational scope.",
+    description: "Budget workflows for labor, equipment, disposal, and subcontractor rates.",
   },
   {
-    icon: BriefcaseBusiness,
-    title: "Admin",
-    description:
-      "Control seats, roles, and auditability with organization-wide administrative controls.",
+    icon: Settings2,
+    title: "Regulatory Matrix",
+    description: "Editable matrix controls and thresholds in Pro and above.",
+  },
+  {
+    icon: Briefcase,
+    title: "Operation Profiles",
+    description: "Operation and task profiles with monitoring recommendations in Pro and above.",
+  },
+  {
+    icon: FileSpreadsheet,
+    title: "Reporting / Exports",
+    description: "PDF reports on all tiers, with bulk Excel/CSV exports in Starter and above.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Admin / Org Controls",
+    description: "Seat, role, and auditability controls, with multi-org/API flags in Enterprise.",
   },
 ];
 
@@ -42,11 +79,11 @@ export function PlatformOverviewSection() {
             Platform Overview
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            AbateIQ is a full EHS operations platform, not just a survey and monitoring tool.
+            Module names and access levels match the app’s actual Free, Starter, Pro, and Enterprise feature map.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {modules.map((module) => {
             const Icon = module.icon;
             return (

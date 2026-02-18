@@ -1,4 +1,4 @@
-import { Check, X, TrendingUp } from "lucide-react";
+import { Check, TrendingUp } from "lucide-react";
 import { Button } from "./ui/button";
 
 interface PricingSectionProps {
@@ -6,7 +6,7 @@ interface PricingSectionProps {
   onContactSalesClick: () => void;
 }
 
-type PlanAction = "trial" | "sales";
+type PlanAction = "start" | "sales";
 
 export function PricingSection({
   onStartTrialClick,
@@ -14,84 +14,84 @@ export function PricingSection({
 }: PricingSectionProps) {
   const plans = [
     {
-      name: "Starter",
-      price: "$29",
-      period: "/ user / month",
-      billing: "Billed annually",
-      description: "For teams running core EHS operations workflows.",
-      cta: "Start Free Trial",
+      name: "Free",
+      price: "$0",
+      period: "",
+      billing: "Always free",
+      seats: "Seat cap: 2",
+      description: "For individuals and very small teams running core compliance workflows.",
+      cta: "Start for Free Today",
       ctaVariant: "outline" as const,
-      action: "trial" as PlanAction,
+      action: "start" as PlanAction,
       features: [
-        { text: "Air monitoring + exceedance tracking", included: true },
-        { text: "Inspections & buildings", included: true },
-        { text: "Budgets module", included: true },
-        { text: "Reporting (PDF + Excel export)", included: true },
-        { text: "Equipment & personnel compliance", included: true },
-        { text: "NEAs & exposure trends", included: true },
-        { text: "Admin & organization controls", included: false },
-        { text: "Advanced role governance", included: false },
+        "Surveys (FAs, HAs, samples, photos, observations, floor plans)",
+        "Air Monitoring (core module access)",
+        "Equipment tracking",
+        "Core inspections workflows",
+        "Survey report generation (PDF)",
       ],
       popular: false,
-      color: "#10b981",
+      dark: false,
+    },
+    {
+      name: "Starter",
+      price: "$39",
+      period: "/ user / month",
+      billing: "$400 / user / year",
+      seats: "Seat cap: 10",
+      description: "For teams that need NEAs, budgets, trends, and export workflows.",
+      cta: "Get Starter",
+      ctaVariant: "default" as const,
+      action: "start" as PlanAction,
+      features: [
+        "Everything in Free",
+        "NEA Management",
+        "Budgets",
+        "Trend Dashboards / Exposure Trends",
+        "Bulk Exports (Excel/CSV)",
+      ],
+      popular: true,
+      dark: false,
     },
     {
       name: "Pro",
       price: "$69",
       period: "/ user / month",
-      billing: "Billed annually",
-      description: "For organizations that need stronger controls and auditability.",
-      cta: "Start 14-Day Trial",
-      ctaVariant: "default" as const,
-      action: "trial" as PlanAction,
-      features: [
-        { text: "Everything in Starter", included: true },
-        { text: "Admin & organization controls", included: true },
-        { text: "Role-based permissions + seat management", included: true },
-        { text: "Auditability workflows", included: true },
-        { text: "Expanded reporting controls", included: true },
-        { text: "Priority support", included: true },
-      ],
-      popular: true,
-      color: "#3b82f6",
-    },
-    {
-      name: "Business",
-      price: "$119",
-      period: "/ user / month",
-      billing: "Billed annually",
-      description: "For multi-site programs with heavier operational demands.",
-      cta: "Talk to Sales",
+      billing: "$750 / user / year",
+      seats: "Seat cap: 25",
+      description: "For organizations needing advanced controls and configuration depth.",
+      cta: "Get Pro",
       ctaVariant: "outline" as const,
-      action: "sales" as PlanAction,
+      action: "start" as PlanAction,
       features: [
-        { text: "Everything in Pro", included: true },
-        { text: "Cross-site operational views", included: true },
-        { text: "Program-level reporting controls", included: true },
-        { text: "Operational governance support", included: true },
-        { text: "High-volume workflow support", included: true },
+        "Everything in Starter",
+        "Regulatory Matrix Edit",
+        "Operation Profiles / Task Profiles",
+        "Monitoring Recommendations",
+        "White Label",
+        "Advanced filters / generative-report flags",
       ],
       popular: false,
-      color: "#8b5cf6",
+      dark: false,
     },
     {
       name: "Enterprise",
-      price: "Custom",
-      period: "Pricing",
-      billing: "",
-      description: "For regulated enterprises and multi-division organizations.",
-      cta: "Request Enterprise Demo",
+      price: "Starting at $3,000",
+      period: "/ month base + $149 / user / month",
+      billing: "Annual contract required",
+      seats: "Seat cap: Unlimited",
+      description: "For multi-org programs requiring enterprise controls, API access, and procurement support.",
+      cta: "Contact Sales",
       ctaVariant: "default" as const,
       action: "sales" as PlanAction,
       features: [
-        { text: "Everything in Business", included: true },
-        { text: "Enterprise-only controls", included: true },
-        { text: "Contracted compliance SLAs", included: true },
-        { text: "Custom governance policies", included: true },
-        { text: "Dedicated onboarding", included: true },
+        "Everything in Pro",
+        "All gated features enabled",
+        "Multi-org flags",
+        "API access flags",
+        "Enterprise SLA and procurement posture",
       ],
       popular: false,
-      color: "#1f1f1f",
       dark: true,
     },
   ];
@@ -100,28 +100,44 @@ export function PricingSection({
     {
       label: "Starter and above",
       items: [
-        "Air Monitoring",
-        "NEAs & Exposure Trends",
-        "Inspections & Buildings",
-        "Equipment & Personnel Compliance",
+        "NEA Management",
         "Budgets",
-        "Reporting",
+        "Trend Dashboards / Exposure Trends",
+        "Bulk Exports (Excel/CSV)",
       ],
     },
     {
       label: "Pro and above",
       items: [
-        "Admin & Organization Controls",
-        "Role-based permissions",
-        "Seat management and auditability",
+        "Regulatory Matrix Edit",
+        "Operation Profiles / Task Profiles",
+        "Monitoring Recommendations",
+        "White Label",
+        "Advanced filters / generative-report flags",
       ],
     },
     {
       label: "Enterprise only",
       items: [
-        "Custom governance controls",
-        "Enterprise compliance agreements",
+        "Multi-org flags",
+        "API access flags",
+        "Enterprise SLA / procurement support",
       ],
+    },
+  ];
+
+  const billingFaq = [
+    {
+      question: "What counts as a seat?",
+      answer: "A seat is an active user account with login access.",
+    },
+    {
+      question: "What happens when we hit our seat cap?",
+      answer: "You can keep current users active, but adding more seats requires upgrading to the next plan.",
+    },
+    {
+      question: "How does annual vs monthly billing work?",
+      answer: "Starter and Pro are available in monthly per-user pricing or discounted annual per-user pricing.",
     },
   ];
 
@@ -130,17 +146,17 @@ export function PricingSection({
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl mb-4 text-gray-900">
-            Pricing That Maps to Real Platform Access
+            Pricing That Matches the App
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Feature availability is gated by tier to match operational and governance needs.
+            Four plans only: Free, Starter, Pro, and Enterprise. No hidden tiers.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {plans.map((plan, index) => (
+          {plans.map((plan) => (
             <div
-              key={index}
+              key={plan.name}
               className={`relative rounded-lg border-2 p-8 ${
                 plan.popular
                   ? "border-[#3b82f6] shadow-xl scale-105 bg-white"
@@ -160,21 +176,22 @@ export function PricingSection({
                 <h3 className={`text-2xl mb-2 ${plan.dark ? "text-white" : "text-gray-900"}`}>
                   {plan.name}
                 </h3>
-                <div className="mb-2">
+                <div className="mb-1">
                   <span className={`text-4xl ${plan.dark ? "text-white" : "text-gray-900"}`}>
                     {plan.price}
                   </span>
-                  {plan.period && (
-                    <span className={`text-sm ml-2 ${plan.dark ? "text-gray-400" : "text-gray-600"}`}>
-                      {plan.period}
-                    </span>
-                  )}
                 </div>
-                {plan.billing && (
-                  <p className={`text-sm ${plan.dark ? "text-gray-400" : "text-gray-600"}`}>
-                    {plan.billing}
+                {plan.period && (
+                  <p className={`text-sm ${plan.dark ? "text-gray-300" : "text-gray-700"}`}>
+                    {plan.period}
                   </p>
                 )}
+                <p className={`text-sm ${plan.dark ? "text-gray-400" : "text-gray-600"}`}>
+                  {plan.billing}
+                </p>
+                <p className={`text-sm mt-1 ${plan.dark ? "text-gray-400" : "text-gray-600"}`}>
+                  {plan.seats}
+                </p>
                 <p className={`mt-4 text-sm ${plan.dark ? "text-gray-300" : "text-gray-600"}`}>
                   {plan.description}
                 </p>
@@ -187,29 +204,17 @@ export function PricingSection({
                     : "border-2 border-gray-300 hover:border-[#fbbf24]"
                 }`}
                 variant={plan.ctaVariant}
-                onClick={plan.action === "trial" ? onStartTrialClick : onContactSalesClick}
+                onClick={plan.action === "start" ? onStartTrialClick : onContactSalesClick}
               >
                 {plan.cta}
               </Button>
 
               <div className="space-y-3">
-                {plan.features.map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-start gap-2">
-                    {feature.included ? (
-                      <Check className={`w-5 h-5 flex-shrink-0 ${plan.dark ? "text-[#fbbf24]" : "text-green-600"}`} />
-                    ) : (
-                      <X className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                    )}
-                    <span
-                      className={`text-sm ${
-                        feature.included
-                          ? plan.dark
-                            ? "text-gray-100"
-                            : "text-gray-900"
-                          : "text-gray-400"
-                      }`}
-                    >
-                      {feature.text}
+                {plan.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-2">
+                    <Check className={`w-5 h-5 flex-shrink-0 ${plan.dark ? "text-[#fbbf24]" : "text-green-600"}`} />
+                    <span className={`text-sm ${plan.dark ? "text-gray-100" : "text-gray-900"}`}>
+                      {feature}
                     </span>
                   </div>
                 ))}
@@ -218,7 +223,7 @@ export function PricingSection({
           ))}
         </div>
 
-        <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-8 max-w-5xl mx-auto">
+        <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-8 max-w-6xl mx-auto mb-10">
           <h3 className="text-2xl mb-6 text-gray-900">Tier Gate Reference</h3>
           <div className="grid md:grid-cols-3 gap-5">
             {tierGates.map((group) => (
@@ -232,6 +237,18 @@ export function PricingSection({
                     </li>
                   ))}
                 </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-white border border-gray-200 rounded-lg p-8 max-w-6xl mx-auto">
+          <h3 className="text-2xl mb-6 text-gray-900">Pricing FAQ</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {billingFaq.map((item) => (
+              <div key={item.question} className="bg-gray-50 rounded-lg border border-gray-200 p-5">
+                <h4 className="text-base text-gray-900 mb-2">{item.question}</h4>
+                <p className="text-sm text-gray-600">{item.answer}</p>
               </div>
             ))}
           </div>

@@ -17,7 +17,7 @@ const faqs = [
     icon: Database,
     question: 'How long is data retained?',
     answer:
-      'Standard plans include 7-year data retention, which meets most regulatory requirements. Business and Enterprise plans can extend retention to 10+ years. Enterprise customers can also configure custom retention policies to meet specific industry or organizational requirements.',
+      'Standard plans include 7-year data retention, which meets most regulatory requirements. Enterprise customers can extend retention windows and configure custom retention policies.',
   },
   {
     icon: Download,
@@ -29,19 +29,19 @@ const faqs = [
     icon: Building2,
     question: 'Do you support multi-site organizations?',
     answer:
-      'Yes, our Business and Enterprise plans include multi-site and multi-organization support. You can manage separate facilities with their own data while maintaining consolidated reporting at the corporate level. Role-based access controls ensure site managers only see their relevant data.',
+      'Yes. Enterprise enables multi-org and API access flags for cross-organization operations while preserving role-based access controls.',
   },
   {
     icon: Users,
     question: 'How are seats counted?',
     answer:
-      'Seats are counted per active user who needs to log into the system. This includes industrial hygienists, EHS managers, inspectors, and administrators. View-only accounts for executives or auditors do not count against your seat limit. You can add or remove seats at any time with prorated billing.',
+      'Seats are active users with login access. Free supports up to 2 seats, Starter up to 10, and Pro up to 25; Enterprise is unlimited.',
   },
   {
     icon: Palette,
     question: 'Is white labeling available?',
     answer:
-      'White labeling is available on our Enterprise plan. This includes custom branding with your company logo, colors, and domain. Enterprise customers can also customize email notifications, report templates, and even specific terminology to match your organization\'s standards.',
+      'Yes. White labeling is available on Pro and Enterprise plans.',
   },
 ];
 

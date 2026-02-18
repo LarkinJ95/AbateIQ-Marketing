@@ -4,10 +4,10 @@ const requiredModules = [
   {
     id: "inspections-buildings",
     icon: Building2,
-    title: "Inspections & Buildings",
+    title: "Inspections",
     description:
-      "Manage building inventories, inspection history, and hazard sample logs with full historical traceability.",
-    gate: "Starter and above",
+      "Run inspections with building history, hazard logs, and defensible records in core workflows.",
+    gate: "Free",
   },
   {
     id: "budgets",
