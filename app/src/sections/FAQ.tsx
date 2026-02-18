@@ -29,7 +29,7 @@ const faqs = [
     icon: Building2,
     question: 'Do you support multi-site organizations?',
     answer:
-      'Yes. Enterprise enables multi-org and API access flags for cross-organization operations while preserving role-based access controls.',
+      'Yes. Enterprise supports multi-org operations so you can manage compliance across multiple sites, divisions, or client organizations with centralized reporting and site-specific permissions.',
   },
   {
     icon: Users,
