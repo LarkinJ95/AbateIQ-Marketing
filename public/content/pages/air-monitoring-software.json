@@ -7,20 +7,17 @@
   "painPoints": [
     "Sample logs and calibration details spread across disconnected tools.",
     "Exposure reporting delays when field and lab workflows are not unified.",
-    "Manual exceedance tracking that increases compliance risk."
+    "Manual exceedance tracking that increases compliance risk.",
+    "Missing context (task, controls, calibration) makes air data harder to defend during audits and client review."
   ],
   "workflow": [
     "Log samples and calibrations in structured air monitoring workflows.",
     "Track exposure data with threshold visibility for PEL, STEL, and TWA.",
-    "Generate reporting outputs from one validated dataset."
+    "Generate reporting outputs from one validated dataset.",
+    "Capture personal vs area samples with breathing-zone context, task descriptions, and control conditions.",
+    "Automatically compute TWAs and compare results to PEL/AL/STEL with clear exceedance narratives.",
+    "Generate defensible reports with linked calibration records, lab results, and revision history."
   ],
-  {
-  "heading": "Why Defensible Air Monitoring Data Matters",
-  "body": [
-    "Air monitoring results are only useful if they are complete, traceable, and defensible. Missing calibration records, unclear task descriptions, or disconnected lab results can undermine compliance decisions.",
-    "AbateIQ links field data, calibrations, lab results, and exposure limits in one workflow, reducing documentation gaps and strengthening audit readiness."
-  ]
-}
   "regulatoryReferences": [
     "OSHA air sampling documentation expectations.",
     "EPA-aligned handling patterns for environmental monitoring records.",
@@ -32,9 +29,9 @@
     "PEL/STEL exceedance alerts",
     "Automated report generation",
     "Lab result integration",
-    "Defensible audit trails",
-	"Breathing zone sample tracking",
-	"Area vs personal sample classification"
+    "Defensible audit trails (linked field data, calibration, lab reports)",
+    "Breathing zone sample tracking (personal vs area classification)",
+    "Area monitoring for control verification and boundary checks"
   ],
   "useCases": [
     "Industrial hygiene teams",
@@ -49,11 +46,15 @@
     {
       "question": "Does AbateIQ support OSHA-focused air monitoring documentation?",
       "answer": "Yes. Workflows are structured to improve completeness, traceability, and audit readiness."
-    }
+    },
     {
-  "question": "How does AbateIQ improve defensibility?",
-  "answer": "By linking calibration records, task descriptions, and lab results to each sample, AbateIQ creates a complete audit trail."
-}
+      "question": "How does AbateIQ improve defensibility of air monitoring results?",
+      "answer": "AbateIQ links each sample to the task performed, sampling duration/volume, calibration records, and lab results\u2014creating an end-to-end audit trail that reduces documentation gaps."
+    },
+    {
+      "question": "Can AbateIQ track personal vs area samples separately?",
+      "answer": "Yes. Samples can be classified as personal (breathing zone), area, or excursion, with workflows and reporting tailored to each type."
+    }
   ],
   "internalLinks": [
     {

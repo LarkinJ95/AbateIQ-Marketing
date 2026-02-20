@@ -7,12 +7,16 @@
   "painPoints": [
     "Regulatory tasks tracked across disconnected tools.",
     "Incomplete audit trails and inconsistent documentation standards.",
-    "Manual reporting cycles that increase compliance overhead."
+    "Manual reporting cycles that increase compliance overhead.",
+    "Spreadsheet-based tracking creates version conflicts and weak traceability across sites, people, and regulations."
   ],
   "workflow": [
     "Track compliance obligations across teams and sites.",
     "Maintain traceable records and document workflows.",
-    "Generate reporting outputs for internal and regulatory review."
+    "Generate reporting outputs for internal and regulatory review.",
+    "Centralize regulatory tasks, evidence, and approvals so each requirement has a clear owner and due date.",
+    "Standardize documentation formats and retention so audits don\u2019t depend on tribal knowledge.",
+    "Report status across programs with consistent dashboards and exportable records."
   ],
   "regulatoryReferences": [
     "OSHA-focused documentation workflows for occupational compliance.",
@@ -23,7 +27,10 @@
     "Multi-regulation support",
     "Compliance tracking dashboards",
     "Audit trails",
-    "Document management"
+    "Document management",
+    "Single source of truth for compliance evidence and records",
+    "Standardized reporting templates across programs",
+    "Role-based access and audit history for critical changes"
   ],
   "useCases": [
     "EHS managers",
@@ -38,6 +45,14 @@
     {
       "question": "Does AbateIQ support audit trail requirements?",
       "answer": "Yes. Workflows maintain traceability to improve defensibility during reviews and audits."
+    },
+    {
+      "question": "Why is spreadsheet-based compliance risky?",
+      "answer": "Spreadsheets struggle with version control, permissions, and traceability. Centralized systems reduce gaps, ensure consistent formats, and improve audit readiness."
+    },
+    {
+      "question": "Can AbateIQ support multiple regulatory programs?",
+      "answer": "Yes. AbateIQ is designed to centralize workflows across programs while keeping records organized, searchable, and defensible."
     }
   ],
   "internalLinks": [

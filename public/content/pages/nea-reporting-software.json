@@ -7,12 +7,16 @@
   "painPoints": [
     "Manual NEA generation and formatting delays closeout and increases risk.",
     "Data inconsistencies weaken report defensibility.",
-    "Historical exposure comparison is difficult in disconnected systems."
+    "Historical exposure comparison is difficult in disconnected systems.",
+    "NEAs are often challenged when sampling context and controls are not documented consistently."
   ],
   "workflow": [
     "Generate NEAs from structured survey and monitoring data.",
     "Validate documentation before finalization.",
-    "Compare historical exposure patterns to improve defensibility."
+    "Compare historical exposure patterns to improve defensibility.",
+    "Build NEAs from verified sampling data with task descriptions, controls, and methods tied to each result.",
+    "Automate TWA calculations and threshold comparisons with clear determinations and validity conditions.",
+    "Generate client-ready NEAs with attachments lists (lab reports, COC, photos) and revision history."
   ],
   "regulatoryReferences": [
     "OSHA-aligned NEA documentation patterns.",
@@ -23,7 +27,10 @@
     "Automated NEA generation",
     "Historical exposure comparisons",
     "OSHA-aligned documentation",
-    "Data validation and defensibility"
+    "Data validation and defensibility",
+    "Validity conditions and re-evaluation triggers",
+    "Attachment and evidence linkage (lab reports, COC, photos)",
+    "Defensible NEA narrative generation from source data"
   ],
   "useCases": [
     "Asbestos and abatement contractors",
@@ -38,6 +45,14 @@
     {
       "question": "How does AbateIQ improve NEA defensibility?",
       "answer": "It links report outputs to underlying exposure and field evidence for audit-ready documentation."
+    },
+    {
+      "question": "Why are NEAs rejected or challenged?",
+      "answer": "NEAs are challenged when sampling data is incomplete, tasks and controls are unclear, or results aren\u2019t traceable to lab reports. AbateIQ ties NEAs directly to verified source data."
+    },
+    {
+      "question": "Does AbateIQ include validity conditions in NEAs?",
+      "answer": "Yes. NEAs can include conditions required for validity (same materials, controls, work practices) and guidance on when re-evaluation is needed."
     }
   ],
   "internalLinks": [

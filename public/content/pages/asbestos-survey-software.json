@@ -7,12 +7,16 @@
   "painPoints": [
     "Managing multi-floor asbestos survey workflows with disconnected records and inconsistent formats.",
     "Sample tracking and chain-of-custody gaps that increase documentation risk.",
-    "Manual floor plan labeling and report assembly delaying project closeout."
+    "Manual floor plan labeling and report assembly delaying project closeout.",
+    "Survey gaps (missing sample metadata, unclear locations) increase rework and documentation risk."
   ],
   "workflow": [
     "Capture asbestos inspection details by building, floor, and room.",
     "Track ACM samples and chain-of-custody records in one system.",
-    "Generate floor plan-linked documentation and compliance-ready reports."
+    "Generate floor plan-linked documentation and compliance-ready reports.",
+    "Standardize inspection inputs (material descriptions, quantities, locations) across floors and areas.",
+    "Tie each sample to location context, photos, and chain-of-custody for defensible documentation.",
+    "Export floor-aware reports with consistent labeling for ACM, samples, and areas."
   ],
   "regulatoryReferences": [
     "OSHA asbestos documentation practices for defensible records.",
@@ -24,7 +28,10 @@
     "ACM sample tracking and chain of custody",
     "Floor plan labeling and export",
     "Automated report generation",
-    "Compliance-ready documentation"
+    "Compliance-ready documentation",
+    "Sample location traceability (photos, floor/area labels, consistent IDs)",
+    "Standardized inspection templates (repeatable fields and sections)",
+    "Defensible survey documentation (COC + lab report linkage)"
   ],
   "useCases": [
     "Environmental consultants",
@@ -39,6 +46,14 @@
     {
       "question": "Can teams manage chain-of-custody records in AbateIQ?",
       "answer": "Yes. Sample workflows include custody details that remain connected to inspection and reporting records."
+    },
+    {
+      "question": "What makes an asbestos survey defensible?",
+      "answer": "Clear material descriptions, precise locations, complete sample metadata, and traceable lab/chain-of-custody records. AbateIQ standardizes these elements so reports stay consistent."
+    },
+    {
+      "question": "Does AbateIQ help with floor plan labeling?",
+      "answer": "Yes. AbateIQ supports multi-floor workflows and consistent labeling so ACM locations and samples are easy to follow from field collection to final report."
     }
   ],
   "internalLinks": [

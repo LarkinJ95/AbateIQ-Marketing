@@ -7,12 +7,16 @@
   "painPoints": [
     "Exposure data fragmentation across spreadsheets and disconnected systems.",
     "Difficulty maintaining complete historical exposure records.",
-    "Slow audit preparation due to inconsistent documentation standards."
+    "Slow audit preparation due to inconsistent documentation standards.",
+    "Loss of exposure history over time makes trend analysis and defensible decision-making harder."
   ],
   "workflow": [
     "Centralize field capture, monitoring, and reporting data.",
     "Track exposure history across sites, projects, and personnel.",
-    "Deliver compliance dashboards and audit-ready outputs."
+    "Deliver compliance dashboards and audit-ready outputs.",
+    "Maintain exposure histories across projects, sites, and roles so decisions are based on complete records.",
+    "Organize sampling by Similar Exposure Group (SEG) to support repeatable monitoring strategies.",
+    "Surface trends and exceedances with dashboards that are easy to explain to clients and regulators."
   ],
   "regulatoryReferences": [
     "OSHA recordkeeping practices for industrial hygiene programs.",
@@ -24,7 +28,10 @@
     "Multi-site data aggregation",
     "Compliance dashboards",
     "Audit-ready documentation",
-    "Centralized IH database"
+    "Centralized IH database",
+    "Similar Exposure Group (SEG) support",
+    "Long-term exposure trend analysis and retention",
+    "Defensible exposure record continuity across sites"
   ],
   "useCases": [
     "Industrial hygienists",
@@ -39,6 +46,14 @@
     {
       "question": "Can AbateIQ support multi-site IH operations?",
       "answer": "Yes. Exposure records and compliance workflows can be managed across multiple sites in one platform."
+    },
+    {
+      "question": "Why does exposure history matter?",
+      "answer": "Complete exposure histories support trend detection, control verification, and defensible long-term worker health decisions."
+    },
+    {
+      "question": "Does AbateIQ support SEGs?",
+      "answer": "Yes. AbateIQ can organize sampling and reporting around Similar Exposure Groups to improve consistency and monitoring strategy."
     }
   ],
   "internalLinks": [
