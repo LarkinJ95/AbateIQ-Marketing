@@ -1,0 +1,55 @@
+{
+  "slug": "/resources/blog/air-monitoring-reports-required-osha-elements",
+  "title": "Air Monitoring Reports: What OSHA Requires",
+  "category": "Air Monitoring",
+  "primaryKeyword": "air monitoring software",
+  "summary": "A practical guide to OSHA-relevant air monitoring report elements, data integrity controls, and defensibility.",
+  "sections": [
+    {
+      "heading": "What Must Be Included in an Air Monitoring Report",
+      "body": [
+        "Identify core report elements for defensible air monitoring documentation.",
+        "Explain data fields needed for field-to-report traceability.",
+        "Describe standardized formatting practices that reduce review delays."
+      ]
+    },
+    {
+      "heading": "Sampling and Calibration Data Integrity",
+      "body": [
+        "Explain sampling and calibration data quality controls.",
+        "Describe validation steps before report generation.",
+        "Show how structured workflows reduce transcription and omission errors."
+      ]
+    },
+    {
+      "heading": "Exceedance Documentation",
+      "body": [
+        "Describe how exceedances should be captured and communicated.",
+        "Explain why contextual evidence matters for defensibility.",
+        "Show how to align exceedance records with reporting workflows."
+      ]
+    },
+    {
+      "heading": "Review and Sign-Off Workflows",
+      "body": [
+        "Outline reviewer sign-off and QA responsibilities.",
+        "Describe versioning and change controls for reporting.",
+        "Provide a repeatable workflow for publication-ready outputs."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Which report elements are essential for defensibility?",
+      "answer": "Sampling details, calibration records, contextual conditions, threshold interpretation, and review sign-off are core elements."
+    },
+    {
+      "question": "How do teams reduce report rework?",
+      "answer": "Use structured data capture and standardized reporting workflows tied to validated source records."
+    }
+  ],
+  "cta": {
+    "label": "Explore Air Monitoring Software",
+    "href": "/air-monitoring-software"
+  }
+}

@@ -1,0 +1,248 @@
+backend:
+  name: github
+  repo: LarkinJ95/AbateIQ-Marketing
+  branch: main
+
+local_backend: true
+publish_mode: editorial_workflow
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "seo_pages"
+    label: "SEO Pages"
+    files:
+      - name: "asbestos_survey_software"
+        label: "Asbestos Survey Software"
+        file: "public/content/pages/asbestos-survey-software.json"
+        format: "json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "H1", name: "h1", widget: "string" }
+          - { label: "Hero Copy", name: "heroCopy", widget: "text" }
+          - { label: "Pain Points", name: "painPoints", widget: "list", field: { label: "Pain Point", name: "item", widget: "string" } }
+          - { label: "Workflow Steps", name: "workflow", widget: "list", field: { label: "Step", name: "item", widget: "string" } }
+          - { label: "Regulatory References", name: "regulatoryReferences", widget: "list", field: { label: "Reference", name: "item", widget: "string" } }
+          - { label: "Feature Breakdown", name: "featureBreakdown", widget: "list", field: { label: "Feature", name: "item", widget: "string" } }
+          - { label: "Use Cases", name: "useCases", widget: "list", field: { label: "Use Case", name: "item", widget: "string" } }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - label: "Internal Links"
+            name: "internalLinks"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string" }
+          - { label: "CTA Href", name: "ctaHref", widget: "string" }
+      - name: "air_monitoring_software"
+        label: "Air Monitoring Software"
+        file: "public/content/pages/air-monitoring-software.json"
+        format: "json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "H1", name: "h1", widget: "string" }
+          - { label: "Hero Copy", name: "heroCopy", widget: "text" }
+          - { label: "Pain Points", name: "painPoints", widget: "list", field: { label: "Pain Point", name: "item", widget: "string" } }
+          - { label: "Workflow Steps", name: "workflow", widget: "list", field: { label: "Step", name: "item", widget: "string" } }
+          - { label: "Regulatory References", name: "regulatoryReferences", widget: "list", field: { label: "Reference", name: "item", widget: "string" } }
+          - { label: "Feature Breakdown", name: "featureBreakdown", widget: "list", field: { label: "Feature", name: "item", widget: "string" } }
+          - { label: "Use Cases", name: "useCases", widget: "list", field: { label: "Use Case", name: "item", widget: "string" } }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - label: "Internal Links"
+            name: "internalLinks"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string" }
+          - { label: "CTA Href", name: "ctaHref", widget: "string" }
+      - name: "industrial_hygiene_software"
+        label: "Industrial Hygiene Software"
+        file: "public/content/pages/industrial-hygiene-software.json"
+        format: "json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "H1", name: "h1", widget: "string" }
+          - { label: "Hero Copy", name: "heroCopy", widget: "text" }
+          - { label: "Pain Points", name: "painPoints", widget: "list", field: { label: "Pain Point", name: "item", widget: "string" } }
+          - { label: "Workflow Steps", name: "workflow", widget: "list", field: { label: "Step", name: "item", widget: "string" } }
+          - { label: "Regulatory References", name: "regulatoryReferences", widget: "list", field: { label: "Reference", name: "item", widget: "string" } }
+          - { label: "Feature Breakdown", name: "featureBreakdown", widget: "list", field: { label: "Feature", name: "item", widget: "string" } }
+          - { label: "Use Cases", name: "useCases", widget: "list", field: { label: "Use Case", name: "item", widget: "string" } }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - label: "Internal Links"
+            name: "internalLinks"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string" }
+          - { label: "CTA Href", name: "ctaHref", widget: "string" }
+      - name: "nea_reporting_software"
+        label: "NEA Reporting Software"
+        file: "public/content/pages/nea-reporting-software.json"
+        format: "json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "H1", name: "h1", widget: "string" }
+          - { label: "Hero Copy", name: "heroCopy", widget: "text" }
+          - { label: "Pain Points", name: "painPoints", widget: "list", field: { label: "Pain Point", name: "item", widget: "string" } }
+          - { label: "Workflow Steps", name: "workflow", widget: "list", field: { label: "Step", name: "item", widget: "string" } }
+          - { label: "Regulatory References", name: "regulatoryReferences", widget: "list", field: { label: "Reference", name: "item", widget: "string" } }
+          - { label: "Feature Breakdown", name: "featureBreakdown", widget: "list", field: { label: "Feature", name: "item", widget: "string" } }
+          - { label: "Use Cases", name: "useCases", widget: "list", field: { label: "Use Case", name: "item", widget: "string" } }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - label: "Internal Links"
+            name: "internalLinks"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string" }
+          - { label: "CTA Href", name: "ctaHref", widget: "string" }
+      - name: "environmental_compliance_software"
+        label: "Environmental Compliance Software"
+        file: "public/content/pages/environmental-compliance-software.json"
+        format: "json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "H1", name: "h1", widget: "string" }
+          - { label: "Hero Copy", name: "heroCopy", widget: "text" }
+          - { label: "Pain Points", name: "painPoints", widget: "list", field: { label: "Pain Point", name: "item", widget: "string" } }
+          - { label: "Workflow Steps", name: "workflow", widget: "list", field: { label: "Step", name: "item", widget: "string" } }
+          - { label: "Regulatory References", name: "regulatoryReferences", widget: "list", field: { label: "Reference", name: "item", widget: "string" } }
+          - { label: "Feature Breakdown", name: "featureBreakdown", widget: "list", field: { label: "Feature", name: "item", widget: "string" } }
+          - { label: "Use Cases", name: "useCases", widget: "list", field: { label: "Use Case", name: "item", widget: "string" } }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - label: "Internal Links"
+            name: "internalLinks"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string" }
+          - { label: "CTA Href", name: "ctaHref", widget: "string" }
+
+  - name: "blog_posts"
+    label: "Blog Posts"
+    files:
+      - name: "nea_post"
+        label: "How to Create a Negative Exposure Assessment (NEA)"
+        file: "public/content/posts/how-to-create-a-negative-exposure-assessment-nea.json"
+        format: "json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+          - { label: "Summary", name: "summary", widget: "text" }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body Paragraphs", name: "body", widget: "list", field: { label: "Paragraph", name: "item", widget: "text" } }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+      - name: "osha_asbestos_post"
+        label: "OSHA Asbestos Documentation Requirements Explained"
+        file: "public/content/posts/osha-asbestos-documentation-requirements-explained.json"
+        format: "json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+          - { label: "Summary", name: "summary", widget: "text" }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body Paragraphs", name: "body", widget: "list", field: { label: "Paragraph", name: "item", widget: "text" } }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }
+      - name: "air_monitoring_post"
+        label: "Air Monitoring Reports: What OSHA Requires"
+        file: "public/content/posts/air-monitoring-reports-required-osha-elements.json"
+        format: "json"
+        fields:
+          - { label: "Slug", name: "slug", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+          - { label: "Summary", name: "summary", widget: "text" }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body Paragraphs", name: "body", widget: "list", field: { label: "Paragraph", name: "item", widget: "text" } }
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Href", name: "href", widget: "string" }

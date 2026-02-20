@@ -1,0 +1,60 @@
+{
+  "slug": "/industrial-hygiene-software",
+  "primaryKeyword": "industrial hygiene software",
+  "category": "Industrial Hygiene",
+  "h1": "Industrial Hygiene Software for Exposure Data & Compliance Management",
+  "heroCopy": "AbateIQ provides a unified platform for managing exposure data across projects, sites, and personnel.",
+  "painPoints": [
+    "Exposure data fragmentation across spreadsheets and disconnected systems.",
+    "Difficulty maintaining complete historical exposure records.",
+    "Slow audit preparation due to inconsistent documentation standards."
+  ],
+  "workflow": [
+    "Centralize field capture, monitoring, and reporting data.",
+    "Track exposure history across sites, projects, and personnel.",
+    "Deliver compliance dashboards and audit-ready outputs."
+  ],
+  "regulatoryReferences": [
+    "OSHA recordkeeping practices for industrial hygiene programs.",
+    "EPA reporting patterns relevant to environmental operations.",
+    "NESHAP-linked documentation support where asbestos workflows apply."
+  ],
+  "featureBreakdown": [
+    "Exposure history tracking",
+    "Multi-site data aggregation",
+    "Compliance dashboards",
+    "Audit-ready documentation",
+    "Centralized IH database"
+  ],
+  "useCases": [
+    "Industrial hygienists",
+    "EHS managers",
+    "Environmental consultants"
+  ],
+  "faqs": [
+    {
+      "question": "What does IH data centralization improve?",
+      "answer": "It improves reporting speed, consistency, and defensibility while reducing audit preparation delays."
+    },
+    {
+      "question": "Can AbateIQ support multi-site IH operations?",
+      "answer": "Yes. Exposure records and compliance workflows can be managed across multiple sites in one platform."
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "IH data management platform",
+      "href": "/ih-data-management-platform"
+    },
+    {
+      "label": "Air monitoring software",
+      "href": "/air-monitoring-software"
+    },
+    {
+      "label": "NEA reporting software",
+      "href": "/nea-reporting-software"
+    }
+  ],
+  "ctaLabel": "Start for Free",
+  "ctaHref": "/#pricing"
+}

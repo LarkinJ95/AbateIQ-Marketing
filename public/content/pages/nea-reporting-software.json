@@ -1,0 +1,59 @@
+{
+  "slug": "/nea-reporting-software",
+  "primaryKeyword": "negative exposure assessment software",
+  "category": "Exposure Assessment",
+  "h1": "Negative Exposure Assessment (NEA) Software for OSHA Compliance",
+  "heroCopy": "Generate defensible NEAs using verified exposure data and standardized documentation workflows.",
+  "painPoints": [
+    "Manual NEA generation and formatting delays closeout and increases risk.",
+    "Data inconsistencies weaken report defensibility.",
+    "Historical exposure comparison is difficult in disconnected systems."
+  ],
+  "workflow": [
+    "Generate NEAs from structured survey and monitoring data.",
+    "Validate documentation before finalization.",
+    "Compare historical exposure patterns to improve defensibility."
+  ],
+  "regulatoryReferences": [
+    "OSHA-aligned NEA documentation patterns.",
+    "EPA evidence retention expectations for environmental projects.",
+    "NESHAP-relevant references for asbestos-related reporting contexts."
+  ],
+  "featureBreakdown": [
+    "Automated NEA generation",
+    "Historical exposure comparisons",
+    "OSHA-aligned documentation",
+    "Data validation and defensibility"
+  ],
+  "useCases": [
+    "Asbestos and abatement contractors",
+    "Industrial hygiene consultants",
+    "Compliance managers"
+  ],
+  "faqs": [
+    {
+      "question": "Can AbateIQ speed up NEA reporting?",
+      "answer": "Yes. Structured workflows reduce manual assembly and improve report consistency."
+    },
+    {
+      "question": "How does AbateIQ improve NEA defensibility?",
+      "answer": "It links report outputs to underlying exposure and field evidence for audit-ready documentation."
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "Asbestos survey software",
+      "href": "/asbestos-survey-software"
+    },
+    {
+      "label": "Air monitoring software",
+      "href": "/air-monitoring-software"
+    },
+    {
+      "label": "OSHA compliance software",
+      "href": "/osha-compliance-software"
+    }
+  ],
+  "ctaLabel": "Start for Free",
+  "ctaHref": "/#pricing"
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "/resources/blog/osha-asbestos-documentation-requirements-explained",
+  "title": "OSHA Asbestos Documentation Requirements Explained",
+  "category": "OSHA Compliance",
+  "primaryKeyword": "OSHA asbestos documentation requirements",
+  "summary": "An operational breakdown of required asbestos records, survey documentation, monitoring records, and retention workflows.",
+  "sections": [
+    {
+      "heading": "Required Records",
+      "body": [
+        "Outline required record categories used in asbestos compliance programs.",
+        "Describe operational controls for completeness and consistency.",
+        "Explain how missing records create regulatory and legal exposure."
+      ]
+    },
+    {
+      "heading": "Survey Documentation",
+      "body": [
+        "Describe survey metadata, location fidelity, and chain-of-custody requirements.",
+        "Show what high-quality asbestos survey documentation should include.",
+        "Highlight common survey documentation gaps and how to prevent them."
+      ]
+    },
+    {
+      "heading": "Air Monitoring Records",
+      "body": [
+        "Explain what must be retained from sampling and calibration workflows.",
+        "Connect monitoring records to defensible reporting outputs.",
+        "Describe practical QA checks before final report publication."
+      ]
+    },
+    {
+      "heading": "Retention Requirements",
+      "body": [
+        "Summarize retention policy considerations for asbestos documentation.",
+        "Show how to implement governed retention in digital workflows.",
+        "Describe retrieval and audit response best practices."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Which asbestos records are most frequently missing?",
+      "answer": "Organizations commonly miss complete sample metadata, custody references, and report-to-source traceability."
+    },
+    {
+      "question": "How should retention policies be handled?",
+      "answer": "Retention should follow a consistent policy with governed storage and reliable retrieval workflows."
+    }
+  ],
+  "cta": {
+    "label": "Explore Asbestos Survey Software",
+    "href": "/asbestos-survey-software"
+  }
+}

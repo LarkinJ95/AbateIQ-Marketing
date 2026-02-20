@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigation } from "./components/navigation";
 import { Hero } from "./components/hero";
 import { IOSReleaseSection } from "./components/ios-release-section";
@@ -32,6 +32,8 @@ import {
   getBlogPost,
   getSeoPage,
 } from "./seo/pages";
+import type { BlogPost, SeoPageContent } from "./seo/content";
+import { loadAllCmsBlogPosts, loadCmsBlogPost, loadCmsSeoPage } from "./seo/cms";
 
 function normalizePath(pathname: string) {
   if (pathname.length > 1 && pathname.endsWith("/")) {
@@ -45,9 +47,42 @@ export default function App() {
   const [authDialogView, setAuthDialogView] = useState<ViewType>("signin");
   const [waitlistDialogOpen, setWaitlistDialogOpen] = useState(false);
   const [session, setSession] = useState<AuthSession | null>(() => readSession());
+  const [cmsPage, setCmsPage] = useState<SeoPageContent | null>(null);
+  const [cmsBlogPost, setCmsBlogPost] = useState<BlogPost | null>(null);
+  const [cmsBlogPosts, setCmsBlogPosts] = useState<BlogPost[] | null>(null);
 
   const pathname = useMemo(() => normalizePath(window.location.pathname), []);
   const isDashboardRoute = useMemo(() => pathname.startsWith("/app"), [pathname]);
+
+  useEffect(() => {
+    setCmsPage(null);
+    setCmsBlogPost(null);
+    setCmsBlogPosts(null);
+
+    if (pathname === "/resources/blog") {
+      void loadAllCmsBlogPosts().then((posts) => {
+        if (posts.length) {
+          setCmsBlogPosts(posts);
+        }
+      });
+      return;
+    }
+
+    if (pathname.startsWith("/resources/blog/")) {
+      void loadCmsBlogPost(pathname).then((post) => {
+        if (post) {
+          setCmsBlogPost(post);
+        }
+      });
+      return;
+    }
+
+    void loadCmsSeoPage(pathname).then((page) => {
+      if (page) {
+        setCmsPage(page);
+      }
+    });
+  }, [pathname]);
 
   const openAuthDialog = (view: ViewType) => {
     setAuthDialogView(view);
@@ -145,7 +180,7 @@ export default function App() {
     );
   }
 
-  const seoPage = getSeoPage(pathname);
+  const seoPage = cmsPage || getSeoPage(pathname);
   if (seoPage) {
     return (
       <SeoShell>
@@ -154,7 +189,7 @@ export default function App() {
     );
   }
 
-  const blogPost = getBlogPost(pathname);
+  const blogPost = cmsBlogPost || getBlogPost(pathname);
   if (blogPost) {
     return (
       <SeoShell>
@@ -174,7 +209,7 @@ export default function App() {
   if (pathname === "/resources/blog") {
     return (
       <SeoShell>
-        <ResourcesBlogPage />
+        <ResourcesBlogPage posts={cmsBlogPosts || undefined} />
       </SeoShell>
     );
   }

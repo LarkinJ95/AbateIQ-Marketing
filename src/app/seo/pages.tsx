@@ -183,7 +183,7 @@ export function ResourcesHomePage() {
   );
 }
 
-export function ResourcesBlogPage() {
+export function ResourcesBlogPage({ posts = blogPosts }: { posts?: BlogPost[] }) {
   return (
     <>
       <ResourceHeader
@@ -203,7 +203,7 @@ export function ResourcesBlogPage() {
 
         <h2 className="mt-10 text-2xl text-gray-900">Posts</h2>
         <div className="mt-4 grid gap-6 md:grid-cols-2">
-          {blogPosts.map((post) => (
+          {posts.map((post) => (
             <a key={post.slug} href={post.slug} className="rounded-lg border border-gray-200 bg-white p-6 hover:border-[#2563eb]">
               <p className="text-xs uppercase tracking-wide text-[#2563eb]">{post.category}</p>
               <h3 className="mt-2 text-xl text-gray-900">{post.title}</h3>
