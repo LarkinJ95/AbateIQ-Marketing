@@ -3,33 +3,99 @@
   "title": "Personal vs Area Air Monitoring: When to Use Each",
   "category": "Air Monitoring",
   "primaryKeyword": "personal vs area air sampling",
-  "summary": "Understand the differences between personal and area air monitoring and when each method is appropriate.",
+  "summary": "Understand the differences between personal and area air monitoring, OSHA expectations, and how to choose the right method for defensible exposure assessments.",
   "sections": [
     {
-      "heading": "Personal Air Monitoring",
+      "heading": "Why Air Monitoring Matters",
       "body": [
-        "Personal sampling measures exposure in a worker\u2019s breathing zone.",
-        "It provides the most accurate representation of individual exposure."
+        "Air monitoring is used to determine what airborne contaminants are present and whether worker exposures exceed regulatory limits. It helps employers understand risks and implement appropriate controls to protect worker health.",
+        "In environments such as construction, demolition, welding, and industrial manufacturing, airborne hazards can vary widely throughout the day. Monitoring provides the data needed to make defensible safety decisions."
       ]
     },
     {
-      "heading": "Area Monitoring",
+      "heading": "What Is Personal Air Monitoring?",
       "body": [
-        "Area sampling measures contaminant levels in a general location.",
-        "It helps evaluate engineering controls and environmental conditions."
+        "<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnZZPs0kW0pF1SdKvvzX4Yh4mHLb9OrUZfIQ&s\" alt=\"Diagram showing worker breathing zone used for personal air monitoring\" style=\"max-width:100%; height:auto;\" />",
+        "<em>Breathing zone sampling represents the air a worker actually inhales.</em>",
+        "Personal air monitoring measures contaminants directly in a worker’s breathing zone, typically within 6 to 9 inches of the nose and mouth. This area represents the air the worker actually inhales.",
+        "Sampling devices are worn on the worker’s collar or shoulder, allowing the data to reflect real exposure during normal job tasks and movement.",
+        "Because it accounts for task variability and worker movement, personal monitoring provides the most accurate representation of individual exposure."
       ]
     },
     {
-      "heading": "Choosing the Right Method",
+      "heading": "When Personal Monitoring Is Required",
       "body": [
-        "Personal monitoring is required for exposure compliance decisions.",
-        "Area monitoring supplements exposure data and verifies controls."
+        "OSHA standards often require personal breathing zone samples to determine employee exposure levels and calculate time-weighted averages (TWAs).",
+        "For example, exposure assessments must be based on breathing zone samples that represent the employee’s actual exposure over a work shift.",
+        "Personal monitoring is essential when determining compliance with PELs, evaluating respiratory protection needs, and supporting Negative Exposure Assessments."
+      ]
+    },
+    {
+      "heading": "What Is Area Air Monitoring?",
+      "body": [
+        "<img src=\"https://westernresourcesinc.com/asbestos-air-monitoring/\" alt=\"Area air monitoring setup used to measure airborne asbestos fibers\" style=\"max-width:100%; height:auto;\" />",
+        "<em>Area air monitoring evaluates contaminant levels in a specific location.</em>",
+        "Area monitoring measures contaminant levels in a specific location rather than an individual’s breathing zone. It is used to evaluate environmental conditions and the effectiveness of engineering controls.",
+        "Area samples may be placed near emission sources, inside containments, or at site boundaries to assess migration or control effectiveness."
+      ]
+    },
+    {
+      "heading": "When Area Monitoring Is Appropriate",
+      "body": [
+        "Area monitoring is useful for evaluating engineering controls such as negative air machines or ventilation systems.",
+        "It helps identify contaminant sources, confirm containment effectiveness, and assess environmental conditions for nearby workers or the public.",
+        "However, area monitoring alone cannot determine individual exposure for OSHA compliance."
+      ]
+    },
+    {
+      "heading": "Key Differences Between Personal and Area Monitoring",
+      "body": [
+        "Personal monitoring measures what a worker actually breathes, while area monitoring measures what is present in a location.",
+        "Personal sampling is required for compliance decisions, while area monitoring supports environmental evaluation and control verification.",
+        "Using both methods together provides the most complete picture of workplace exposure conditions."
+      ]
+    },
+    {
+      "heading": "Using Both Methods Together",
+      "body": [
+        "Combining personal and area monitoring allows organizations to correlate environmental conditions with individual exposures.",
+        "For example, area monitors may identify high-concentration zones, helping industrial hygienists decide where personal monitoring is necessary.",
+        "This combined approach improves sampling strategy and strengthens the defensibility of exposure assessments."
+      ]
+    },
+    {
+      "heading": "Common Mistakes in Air Monitoring Programs",
+      "body": [
+        "Relying solely on area monitoring to make exposure determinations can lead to inaccurate conclusions about worker risk.",
+        "Improper placement of personal sampling devices outside the breathing zone can result in unrepresentative data.",
+        "Incomplete documentation of tasks, controls, and environmental conditions weakens the defensibility of monitoring results."
+      ]
+    },
+    {
+      "heading": "How AbateIQ Supports Air Monitoring Programs",
+      "body": [
+        "AbateIQ helps environmental professionals manage both personal and area monitoring workflows in one platform.",
+        "The system links sampling data to tasks, employees, and controls, ensuring traceability and defensible documentation.",
+        "Automated threshold comparisons and reporting tools reduce manual errors and streamline compliance workflows."
       ]
     }
   ],
-  "faqs": [],
+  "faqs": [
+    {
+      "question": "Is personal air monitoring required by OSHA?",
+      "answer": "Many OSHA standards require personal breathing zone samples to determine employee exposure levels and compliance with permissible exposure limits."
+    },
+    {
+      "question": "Can area monitoring replace personal monitoring?",
+      "answer": "No. Area monitoring evaluates environmental conditions but does not represent individual exposure for compliance determinations."
+    },
+    {
+      "question": "Why use both personal and area monitoring?",
+      "answer": "Using both methods provides a complete picture of workplace conditions, helping identify sources, verify controls, and assess individual exposure."
+    }
+  ],
   "cta": {
-    "label": "See Air Monitoring Tools",
+    "label": "See How AbateIQ Simplifies Air Monitoring",
     "href": "/air-monitoring-software"
   }
 }
