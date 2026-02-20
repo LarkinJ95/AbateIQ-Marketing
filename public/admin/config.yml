@@ -49,7 +49,8 @@ collections:
   - name: "blog_posts"
     label: "Blog Posts"
     folder: "public/content/posts"
-    create: false
+    create: true
+    slug: "{{slug}}"
     extension: "json"
     format: "json"
     identifier_field: "slug"
