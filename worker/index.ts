@@ -121,15 +121,15 @@ function createOauthCallbackHtml(status: "success" | "error", payload: unknown):
   <body>
     <script>
       (function () {
-        function receiveMessage(event) {
-          if (event.origin !== window.location.origin) {
-            return;
-          }
-          window.opener.postMessage('authorizing:github', event.origin);
+        if (!window.opener) {
+          return;
         }
+        // Decap expects this handshake pattern from the OAuth popup.
+        window.opener.postMessage('authorizing:github', '*');
         window.opener.postMessage('${message.replace(/'/g, "\\'")}', '*');
-        window.addEventListener('message', receiveMessage, false);
-        window.close();
+        setTimeout(function () {
+          window.close();
+        }, 300);
       })();
     </script>
   </body>
