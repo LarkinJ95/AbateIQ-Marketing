@@ -1,7 +1,7 @@
 import { autoLinkText } from "./internal-linking";
 import { SeoMeta } from "./seo-meta";
 import type { BlogPost, SeoPageContent } from "./content";
-import { blogCategories, blogPosts, seoPages } from "./content";
+import { blogCategories, blogPosts, futureAuthorityTemplates, seoPages } from "./content";
 
 function ScreenshotPlaceholder({ label }: { label: string }) {
   return (
@@ -248,8 +248,13 @@ export function ResourcesTemplatesPage() {
         <article className="rounded-lg border border-gray-200 bg-white p-6">
           <h2 className="text-2xl text-gray-900">Template Library</h2>
           <p className="mt-3 text-gray-700">
-            This section is prepared for Phase 2 expansion with NEA templates, chain-of-custody examples, inspection packs, and compliance documentation handoff kits.
+            This section is prepared for Phase 2 expansion with operational assets that support authority and conversion.
           </p>
+          <ul className="mt-4 space-y-2 text-gray-700">
+            {futureAuthorityTemplates.map((item) => (
+              <li key={item}>• {item}</li>
+            ))}
+          </ul>
         </article>
       </section>
     </>

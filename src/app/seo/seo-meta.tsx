@@ -5,6 +5,8 @@ interface SeoMetaProps {
   primaryKeyword: string;
   category: string;
   path: string;
+  titleOverride?: string;
+  descriptionOverride?: string;
   faqs?: FaqItem[];
   breadcrumbs?: Array<{ name: string; path: string }>;
 }
@@ -31,10 +33,20 @@ function upsertCanonical(href: string) {
   link.setAttribute("href", href);
 }
 
-export function SeoMeta({ primaryKeyword, category, path, faqs = [], breadcrumbs = [] }: SeoMetaProps) {
+export function SeoMeta({
+  primaryKeyword,
+  category,
+  path,
+  titleOverride,
+  descriptionOverride,
+  faqs = [],
+  breadcrumbs = [],
+}: SeoMetaProps) {
   const pageUrl = `${SITE_URL}${path}`;
-  const title = `${primaryKeyword} | ${category} | AbateIQ`;
-  const description = `Industrial hygiene software for ${primaryKeyword}. Manage compliance, reporting, and exposure data with AbateIQ.`;
+  const title = titleOverride || `${primaryKeyword} | ${category} | AbateIQ`;
+  const description =
+    descriptionOverride ||
+    `Industrial hygiene software for ${primaryKeyword}. Manage compliance, reporting, and exposure data with AbateIQ.`;
 
   useEffect(() => {
     document.title = title;
@@ -54,6 +66,7 @@ export function SeoMeta({ primaryKeyword, category, path, faqs = [], breadcrumbs
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "AbateIQ",
+    category: "Industrial Hygiene Software",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     url: SITE_URL,

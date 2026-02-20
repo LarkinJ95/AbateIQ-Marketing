@@ -3,10 +3,10 @@ import platformScreenshot from "../../assets/768c10f1b83fa1b26591f519553e879a6ae
 
 interface HeroProps {
   onStartTrialClick: () => void;
-  onViewPricingClick: () => void;
+  onBookDemoClick: () => void;
 }
 
-export function Hero({ onStartTrialClick, onViewPricingClick }: HeroProps) {
+export function Hero({ onStartTrialClick, onBookDemoClick }: HeroProps) {
   return (
     <section id="hero" className="relative bg-[#2a2a2a] text-white overflow-hidden">
       {/* Subtle background pattern */}
@@ -23,7 +23,10 @@ export function Hero({ onStartTrialClick, onViewPricingClick }: HeroProps) {
             Industrial Hygiene Software for Asbestos, Air Monitoring & Compliance
           </h1>
           <p className="text-lg lg:text-xl text-gray-300 mb-8">
-            Run monitoring, inspections, budgets, reporting, and admin controls from a single defensible system of record.
+            AbateIQ is a purpose-built industrial hygiene platform designed to manage asbestos surveys, air monitoring, exposure data, and compliance workflows in one unified system.
+          </p>
+          <p className="text-base lg:text-lg text-gray-300 mb-8">
+            Eliminate fragmented spreadsheets. Reduce compliance risk. Stay audit-ready.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -32,15 +35,15 @@ export function Hero({ onStartTrialClick, onViewPricingClick }: HeroProps) {
               className="bg-[#fbbf24] hover:bg-[#f59e0b] text-black px-8"
               onClick={onStartTrialClick}
             >
-              Start for Free Today
+              Start for Free
             </Button>
             <Button 
               size="lg"
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-black bg-white/10"
-              onClick={onViewPricingClick}
+              onClick={onBookDemoClick}
             >
-              View Pricing / Open App
+              Book Demo
             </Button>
           </div>
 

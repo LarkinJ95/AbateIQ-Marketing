@@ -4,6 +4,8 @@ const linkRules = [
   { phrase: "asbestos survey", href: "/asbestos-survey-software" },
   { phrase: "air monitoring", href: "/air-monitoring-software" },
   { phrase: "NEA", href: "/nea-reporting-software" },
+  { phrase: "industrial hygiene", href: "/industrial-hygiene-software" },
+  { phrase: "compliance software", href: "/environmental-compliance-software" },
 ];
 
 export function autoLinkText(text: string): ReactNode[] {

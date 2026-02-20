@@ -36,25 +36,41 @@ export interface BlogPost {
   cta: { label: string; href: string };
 }
 
-function longPlaceholderParagraph(topic: string): string {
-  return `Placeholder authority content for ${topic}: explain regulatory context, field execution constraints, documentation standards, quality-control checks, and defensibility requirements in detail. Add examples from asbestos, industrial hygiene, and air monitoring programs, then tie every step back to repeatable workflows in AbateIQ so teams reduce risk, accelerate reporting, and maintain audit-ready records across projects, sites, and divisions.`;
+export const keywordMap: Record<string, string[]> = {
+  "asbestos-survey-software": [
+    "asbestos survey software",
+    "ACM inspection software",
+    "asbestos compliance reporting",
+  ],
+  "air-monitoring-software": [
+    "air monitoring software",
+    "industrial hygiene sampling software",
+    "exposure monitoring reporting",
+  ],
+  "industrial-hygiene-software": [
+    "industrial hygiene software",
+    "IH data management",
+    "exposure tracking software",
+  ],
+  "nea-reporting-software": [
+    "negative exposure assessment software",
+    "NEA report template OSHA",
+  ],
+  "environmental-compliance-software": [
+    "environmental compliance software",
+    "EHS compliance platform",
+  ],
+};
+
+function longParagraph(topic: string): string {
+  return `Placeholder long-form authority content for ${topic}. Expand this section with specific regulatory context, real field workflow examples, documentation quality controls, and defensibility guidance for industrial hygiene and asbestos teams. Include practical implementation steps, common failure patterns, and process improvements that reduce risk, save reporting time, and improve audit readiness.`;
 }
 
-function longSections(topic: string): SeoSection[] {
-  return [
-    {
-      heading: `Why ${topic} Matters`,
-      body: Array.from({ length: 10 }, () => longPlaceholderParagraph(topic)),
-    },
-    {
-      heading: `${topic} Workflow Breakdown`,
-      body: Array.from({ length: 10 }, () => longPlaceholderParagraph(topic)),
-    },
-    {
-      heading: `${topic} Documentation and Defensibility`,
-      body: Array.from({ length: 10 }, () => longPlaceholderParagraph(topic)),
-    },
-  ];
+function outlinedPostSections(headings: string[]): SeoSection[] {
+  return headings.map((heading) => ({
+    heading,
+    body: Array.from({ length: 12 }, () => longParagraph(heading)),
+  }));
 }
 
 export const seoPages: SeoPageContent[] = [
@@ -62,51 +78,46 @@ export const seoPages: SeoPageContent[] = [
     slug: "/asbestos-survey-software",
     primaryKeyword: "asbestos survey software",
     category: "Asbestos Management",
-    h1: "Asbestos Survey Software for Defensible ACM Workflows",
+    h1: "Asbestos Survey Software for Accurate Inspections & Compliance",
     heroCopy:
-      "Manage asbestos inspection reporting, ACM survey management, and compliance documentation from one audit-ready system.",
+      "AbateIQ streamlines asbestos inspections by digitizing surveys, sample tracking, and report generation. Replace manual workflows with a system designed for NESHAP, AHERA, and OSHA compliance.",
     painPoints: [
-      "Multi-floor asbestos surveys are hard to standardize across inspectors and buildings.",
-      "Sample logs and chain-of-custody records are often disconnected from field notes.",
-      "Manual floor plan labeling creates report delays and defensibility gaps.",
+      "Managing multi-floor asbestos survey workflows with disconnected records and inconsistent formats.",
+      "Sample tracking and chain-of-custody gaps that increase documentation risk.",
+      "Manual floor plan labeling and report assembly delaying project closeout.",
     ],
     workflow: [
-      "Capture survey scope by building, floor, room, and material class.",
-      "Track samples, chain-of-custody details, and photo evidence in one record.",
-      "Generate floor plan-linked asbestos compliance documentation and exportable reports.",
+      "Capture asbestos inspection details by building, floor, and room.",
+      "Track ACM samples and chain-of-custody records in one system.",
+      "Generate floor plan-linked documentation and compliance-ready reports.",
     ],
     regulatoryReferences: [
-      "OSHA asbestos standards for worker exposure controls and recordkeeping.",
-      "EPA NESHAP requirements for asbestos renovation and demolition documentation.",
-      "AHERA workflows for school-related asbestos management planning and inspections.",
+      "OSHA asbestos documentation practices for defensible records.",
+      "EPA NESHAP workflows for asbestos renovation and demolition documentation.",
+      "AHERA-aligned record management for school-related asbestos operations.",
     ],
     featureBreakdown: [
-      "Managing multi-floor surveys",
-      "Sample tracking and chain of custody",
-      "Floor plan labeling and reporting",
-      "NESHAP and AHERA compliance workflows",
-      "Exportable survey reports",
+      "Multi-floor survey management",
+      "ACM sample tracking and chain of custody",
+      "Floor plan labeling and export",
+      "Automated report generation",
+      "Compliance-ready documentation",
     ],
     useCases: [
-      "Asbestos consulting firms managing multi-building surveys.",
-      "Industrial hygiene teams documenting ACM conditions before abatement.",
-      "Contractors requiring defensible pre-project asbestos records.",
+      "Environmental consultants",
+      "Industrial hygienists",
+      "Demolition and abatement contractors",
     ],
     faqs: [
       {
-        question: "Can I manage large multi-floor asbestos surveys?",
+        question: "Why does asbestos survey standardization matter?",
         answer:
-          "Yes. AbateIQ structures surveys by building and floor so field data, samples, and photos remain tied to exact locations.",
+          "Incomplete or inconsistent surveys create regulatory risk. AbateIQ helps keep each inspection standardized, traceable, and defensible.",
       },
       {
-        question: "Does AbateIQ support chain-of-custody documentation?",
+        question: "Can teams manage chain-of-custody records in AbateIQ?",
         answer:
-          "Yes. Sample tracking includes custody details that can be included in exportable survey reports.",
-      },
-      {
-        question: "How does this support NESHAP and AHERA workflows?",
-        answer:
-          "AbateIQ centralizes required records, annotations, and reporting outputs used in NESHAP and AHERA documentation processes.",
+          "Yes. Sample workflows include custody details that remain connected to inspection and reporting records.",
       },
     ],
     internalLinks: [
@@ -114,175 +125,160 @@ export const seoPages: SeoPageContent[] = [
       { label: "Air monitoring software", href: "/air-monitoring-software" },
       { label: "OSHA compliance software", href: "/osha-compliance-software" },
     ],
-    ctaLabel: "Start for Free Today",
+    ctaLabel: "Start for Free",
     ctaHref: "/#pricing",
   },
   {
     slug: "/air-monitoring-software",
     primaryKeyword: "air monitoring software",
     category: "Air Monitoring",
-    h1: "Air Monitoring Software for Exposure Reporting and Compliance",
+    h1: "Air Monitoring Software for Exposure Tracking & OSHA Compliance",
     heroCopy:
-      "Run industrial hygiene sampling software workflows with faster logging, exceedance visibility, and defensible reporting.",
+      "AbateIQ simplifies air sampling workflows by capturing field data, calibrations, and lab results in one centralized platform.",
     painPoints: [
-      "Sample logging and calibration records are often split across spreadsheets and paper forms.",
-      "Teams miss PEL/STEL exceedances without consistent alerting workflows.",
-      "Lab result reconciliation and report assembly consume too much analyst time.",
+      "Sample logs and calibration details spread across disconnected tools.",
+      "Exposure reporting delays when field and lab workflows are not unified.",
+      "Manual exceedance tracking that increases compliance risk.",
     ],
     workflow: [
-      "Log samples, calibrations, and collection metadata in standardized workflows.",
-      "Surface exposure intelligence with threshold-aware monitoring summaries.",
-      "Generate automated report packages from field and lab data.",
+      "Log samples and calibrations in structured air monitoring workflows.",
+      "Track exposure data with threshold visibility for PEL, STEL, and TWA.",
+      "Generate reporting outputs from one validated dataset.",
     ],
     regulatoryReferences: [
-      "OSHA air sampling requirements for exposure determination and documentation.",
-      "EPA-aligned evidence handling patterns for environmental sampling records.",
-      "NESHAP-linked reporting support when monitoring ties into asbestos controls.",
+      "OSHA air sampling documentation expectations.",
+      "EPA-aligned handling patterns for environmental monitoring records.",
+      "NESHAP-related support where asbestos monitoring is required.",
     ],
     featureBreakdown: [
-      "Sample logging and calibration tracking",
-      "Real-time exposure intelligence",
+      "Sample logging and pump calibration tracking",
+      "Real-time exposure data management",
       "PEL/STEL exceedance alerts",
       "Automated report generation",
       "Lab result integration",
     ],
     useCases: [
-      "Consulting teams handling recurring site monitoring programs.",
-      "Contractors documenting exposure controls for regulated projects.",
-      "EHS leadership teams reviewing trend and exceedance risk across jobs.",
+      "Industrial hygiene teams",
+      "EHS managers",
+      "Manufacturing safety teams",
     ],
     faqs: [
       {
-        question: "Can AbateIQ centralize field and lab monitoring data?",
+        question: "Can AbateIQ connect field and lab air monitoring data?",
         answer:
-          "Yes. Sampling metadata and lab outcomes are managed in one workflow so reports stay consistent and defensible.",
+          "Yes. Field sampling details and lab results are managed in a unified reporting workflow.",
       },
       {
-        question: "Are exceedance alerts supported?",
+        question: "Does AbateIQ support OSHA-focused air monitoring documentation?",
         answer:
-          "Yes. AbateIQ highlights threshold risk in exposure workflows to improve response time and reporting quality.",
-      },
-      {
-        question: "Is this aligned with OSHA air sampling documentation needs?",
-        answer:
-          "Yes. Workflows are designed for audit-ready records tied to OSHA-oriented exposure reporting practices.",
+          "Yes. Workflows are structured to improve completeness, traceability, and audit readiness.",
       },
     ],
     internalLinks: [
       { label: "Industrial hygiene software", href: "/industrial-hygiene-software" },
       { label: "NEA reporting software", href: "/nea-reporting-software" },
-      { label: "OSHA compliance software", href: "/osha-compliance-software" },
+      { label: "Environmental compliance software", href: "/environmental-compliance-software" },
     ],
-    ctaLabel: "Start for Free Today",
+    ctaLabel: "Start for Free",
     ctaHref: "/#pricing",
   },
   {
     slug: "/industrial-hygiene-software",
     primaryKeyword: "industrial hygiene software",
     category: "Industrial Hygiene",
-    h1: "Industrial Hygiene Software for Exposure Intelligence and Audit Readiness",
+    h1: "Industrial Hygiene Software for Exposure Data & Compliance Management",
     heroCopy:
-      "Unify IH data management, exposure tracking, and compliance workflows across projects, sites, and teams.",
+      "AbateIQ provides a unified platform for managing exposure data across projects, sites, and personnel.",
     painPoints: [
-      "IH data is fragmented across field notebooks, shared drives, and legacy tools.",
-      "Historical exposure comparisons are slow and hard to defend during audits.",
-      "Cross-site reporting lacks standardization and governance.",
+      "Exposure data fragmentation across spreadsheets and disconnected systems.",
+      "Difficulty maintaining complete historical exposure records.",
+      "Slow audit preparation due to inconsistent documentation standards.",
     ],
     workflow: [
-      "Capture survey, monitoring, and inspection data in one standardized platform.",
-      "Maintain exposure history tied to work tasks, sites, and regulatory context.",
-      "Use dashboards and exports to support leadership reporting and audit prep.",
+      "Centralize field capture, monitoring, and reporting data.",
+      "Track exposure history across sites, projects, and personnel.",
+      "Deliver compliance dashboards and audit-ready outputs.",
     ],
     regulatoryReferences: [
-      "OSHA recordkeeping and industrial hygiene exposure documentation practices.",
-      "EPA environmental evidence workflows for defensible compliance reporting.",
-      "NESHAP-related support when IH programs intersect with asbestos operations.",
+      "OSHA recordkeeping practices for industrial hygiene programs.",
+      "EPA reporting patterns relevant to environmental operations.",
+      "NESHAP-linked documentation support where asbestos workflows apply.",
     ],
     featureBreakdown: [
-      "Unified IH database",
       "Exposure history tracking",
-      "Compliance dashboards",
       "Multi-site data aggregation",
-      "Audit readiness tools",
+      "Compliance dashboards",
+      "Audit-ready documentation",
+      "Centralized IH database",
     ],
     useCases: [
-      "Enterprise EHS teams standardizing IH operations across regions.",
-      "Consultants delivering defensible reporting for regulated clients.",
-      "Program managers reducing manual report assembly and QA effort.",
+      "Industrial hygienists",
+      "EHS managers",
+      "Environmental consultants",
     ],
     faqs: [
       {
-        question: "What does IH data management include?",
+        question: "What does IH data centralization improve?",
         answer:
-          "AbateIQ centralizes monitoring, survey, inspection, and reporting records so teams can retrieve defensible histories quickly.",
+          "It improves reporting speed, consistency, and defensibility while reducing audit preparation delays.",
       },
       {
-        question: "Can we aggregate data across sites?",
+        question: "Can AbateIQ support multi-site IH operations?",
         answer:
-          "Yes. Multi-site programs can consolidate reporting while preserving operational traceability.",
-      },
-      {
-        question: "Does this help with audit readiness?",
-        answer:
-          "Yes. Structured workflows and consistent records improve defensibility for audits and compliance reviews.",
+          "Yes. Exposure records and compliance workflows can be managed across multiple sites in one platform.",
       },
     ],
     internalLinks: [
       { label: "IH data management platform", href: "/ih-data-management-platform" },
-      { label: "Environmental compliance software", href: "/environmental-compliance-software" },
       { label: "Air monitoring software", href: "/air-monitoring-software" },
+      { label: "NEA reporting software", href: "/nea-reporting-software" },
     ],
-    ctaLabel: "Start for Free Today",
+    ctaLabel: "Start for Free",
     ctaHref: "/#pricing",
   },
   {
     slug: "/nea-reporting-software",
     primaryKeyword: "negative exposure assessment software",
     category: "Exposure Assessment",
-    h1: "NEA Reporting Software for Faster, Defensible Exposure Documentation",
+    h1: "Negative Exposure Assessment (NEA) Software for OSHA Compliance",
     heroCopy:
-      "Standardize negative exposure assessment workflows with stronger data validation and OSHA-ready reporting outputs.",
+      "Generate defensible NEAs using verified exposure data and standardized documentation workflows.",
     painPoints: [
-      "Manual NEA report assembly creates delays and inconsistencies.",
-      "Missing historical context weakens defensibility during review.",
-      "Teams struggle to maintain repeatable quality checks before submission.",
+      "Manual NEA generation and formatting delays closeout and increases risk.",
+      "Data inconsistencies weaken report defensibility.",
+      "Historical exposure comparison is difficult in disconnected systems.",
     ],
     workflow: [
-      "Generate NEA records from existing survey and monitoring data.",
-      "Apply validation checks to improve completeness and consistency.",
-      "Compare historical exposures to support defensible conclusions.",
+      "Generate NEAs from structured survey and monitoring data.",
+      "Validate documentation before finalization.",
+      "Compare historical exposure patterns to improve defensibility.",
     ],
     regulatoryReferences: [
-      "OSHA compliance documentation patterns relevant to NEA reporting.",
-      "EPA record retention expectations for environmental project files.",
-      "NESHAP-aligned references when NEAs intersect with asbestos operations.",
+      "OSHA-aligned NEA documentation patterns.",
+      "EPA evidence retention expectations for environmental projects.",
+      "NESHAP-relevant references for asbestos-related reporting contexts.",
     ],
     featureBreakdown: [
-      "NEA generation workflows",
-      "Data validation and defensibility",
-      "OSHA compliance documentation",
+      "Automated NEA generation",
       "Historical exposure comparisons",
+      "OSHA-aligned documentation",
+      "Data validation and defensibility",
     ],
     useCases: [
-      "Asbestos contractors preparing NEA documentation packages.",
-      "Industrial hygiene consultants standardizing report QA.",
-      "EHS managers tracking NEA evidence quality across projects.",
+      "Asbestos and abatement contractors",
+      "Industrial hygiene consultants",
+      "Compliance managers",
     ],
     faqs: [
       {
-        question: "Does AbateIQ include an NEA report template workflow?",
+        question: "Can AbateIQ speed up NEA reporting?",
         answer:
-          "Yes. NEA documentation can be produced from structured operational data, reducing manual formatting and missing fields.",
+          "Yes. Structured workflows reduce manual assembly and improve report consistency.",
       },
       {
         question: "How does AbateIQ improve NEA defensibility?",
         answer:
-          "It links underlying field and monitoring evidence to each report, which helps teams defend conclusions during audits.",
-      },
-      {
-        question: "Can we compare current and historical exposures?",
-        answer:
-          "Yes. Historical context is available to support faster review and stronger reporting decisions.",
+          "It links report outputs to underlying exposure and field evidence for audit-ready documentation.",
       },
     ],
     internalLinks: [
@@ -290,30 +286,30 @@ export const seoPages: SeoPageContent[] = [
       { label: "Air monitoring software", href: "/air-monitoring-software" },
       { label: "OSHA compliance software", href: "/osha-compliance-software" },
     ],
-    ctaLabel: "Start for Free Today",
+    ctaLabel: "Start for Free",
     ctaHref: "/#pricing",
   },
   {
     slug: "/environmental-compliance-software",
     primaryKeyword: "environmental compliance software",
     category: "Environmental Compliance",
-    h1: "Environmental Compliance Software for Defensible EHS Execution",
+    h1: "Environmental Compliance Software for EHS & Regulatory Reporting",
     heroCopy:
-      "Track obligations, reporting, and exposure workflows in a single environmental reporting system built for regulated teams.",
+      "Track compliance obligations, maintain audit trails, and manage environmental documentation in one system.",
     painPoints: [
-      "Regulatory obligations are scattered across disconnected trackers.",
-      "Document control and audit trails are inconsistent across teams.",
-      "Reporting cycles are slowed by manual status reconciliation.",
+      "Regulatory tasks tracked across disconnected tools.",
+      "Incomplete audit trails and inconsistent documentation standards.",
+      "Manual reporting cycles that increase compliance overhead.",
     ],
     workflow: [
-      "Unify compliance data capture across field operations and reporting.",
-      "Track deadlines, evidence, and operational status through dashboards.",
-      "Generate defensible exports for internal and external review.",
+      "Track compliance obligations across teams and sites.",
+      "Maintain traceable records and document workflows.",
+      "Generate reporting outputs for internal and regulatory review.",
     ],
     regulatoryReferences: [
-      "OSHA-focused workflow alignment for occupational exposure documentation.",
-      "EPA-style reporting support for environmental compliance programs.",
-      "NESHAP readiness where asbestos and emissions controls overlap.",
+      "OSHA-focused documentation workflows for occupational compliance.",
+      "EPA-style environmental reporting support.",
+      "NESHAP readiness where asbestos controls apply.",
     ],
     featureBreakdown: [
       "Multi-regulation support",
@@ -322,141 +318,126 @@ export const seoPages: SeoPageContent[] = [
       "Document management",
     ],
     useCases: [
-      "EHS programs with complex regional obligations.",
-      "Consultants delivering compliance packages for multiple clients.",
-      "Operations leaders reducing risk from missed documentation steps.",
+      "EHS managers",
+      "Environmental consultants",
+      "Manufacturing safety teams",
     ],
     faqs: [
       {
-        question: "Can AbateIQ support multiple compliance workflows?",
+        question: "Can AbateIQ replace spreadsheet-based compliance tracking?",
         answer:
-          "Yes. Teams can manage monitoring, inspection, reporting, and documentation workflows in one platform.",
+          "Yes. AbateIQ centralizes compliance software workflows and reduces documentation fragmentation.",
       },
       {
-        question: "How are audit trails handled?",
+        question: "Does AbateIQ support audit trail requirements?",
         answer:
-          "Workflows keep traceable records and consistent reporting outputs to improve defensibility.",
-      },
-      {
-        question: "Does this replace generic EHS tracking spreadsheets?",
-        answer:
-          "Yes. AbateIQ centralizes records and status to reduce spreadsheet risk and manual reconciliation.",
+          "Yes. Workflows maintain traceability to improve defensibility during reviews and audits.",
       },
     ],
     internalLinks: [
       { label: "Industrial hygiene software", href: "/industrial-hygiene-software" },
+      { label: "Air monitoring software", href: "/air-monitoring-software" },
       { label: "OSHA compliance software", href: "/osha-compliance-software" },
-      { label: "IH data management platform", href: "/ih-data-management-platform" },
     ],
-    ctaLabel: "Start for Free Today",
+    ctaLabel: "Start for Free",
     ctaHref: "/#pricing",
   },
   {
     slug: "/osha-compliance-software",
     primaryKeyword: "OSHA compliance software",
     category: "OSHA Compliance",
-    h1: "OSHA Compliance Software for Industrial Hygiene and Asbestos Teams",
+    h1: "OSHA Compliance Software for Industrial Hygiene Operations",
     heroCopy:
-      "Document OSHA-aligned workflows for surveys, air monitoring, NEAs, and reporting with stronger operational defensibility.",
+      "Build defensible OSHA documentation workflows for surveys, air monitoring, and exposure reporting.",
     painPoints: [
-      "OSHA documentation requirements are hard to satisfy with fragmented systems.",
-      "Manual report QA creates compliance risk and inconsistent outputs.",
-      "Audit preparation is slow when evidence is spread across tools.",
+      "Documentation gaps caused by manual cross-tool workflows.",
+      "Slow report QA and difficult audit preparation cycles.",
+      "Inconsistent compliance records across teams.",
     ],
     workflow: [
-      "Capture OSHA-relevant evidence in structured digital workflows.",
-      "Generate reporting packages aligned to regulated operational practices.",
-      "Retain records for faster audit response and review.",
+      "Capture OSHA-relevant evidence in one platform.",
+      "Standardize reporting and documentation QA.",
+      "Maintain records for faster audit response.",
     ],
     regulatoryReferences: [
-      "OSHA exposure and documentation practices for industrial hygiene teams.",
-      "EPA frameworks referenced in environmental evidence management.",
-      "NESHAP support where asbestos control workflows are involved.",
+      "OSHA exposure documentation expectations.",
+      "EPA reporting support patterns.",
+      "NESHAP-linked asbestos workflow references.",
     ],
     featureBreakdown: [
-      "Structured documentation workflows",
-      "Exposure and sampling reporting",
+      "Exposure reporting workflows",
+      "Defensible documentation",
       "Audit-ready exports",
-      "Defensible evidence trails",
+      "Compliance tracking visibility",
     ],
     useCases: [
-      "Contractors managing OSHA-facing asbestos project documentation.",
-      "Industrial hygienists preparing defensible exposure records.",
-      "EHS teams standardizing compliance operations across sites.",
+      "Industrial hygienists",
+      "Asbestos contractors",
+      "EHS leadership teams",
     ],
     faqs: [
       {
-        question: "Is AbateIQ an OSHA compliance management platform?",
+        question: "Does AbateIQ help with OSHA-focused reporting?",
         answer:
-          "AbateIQ supports OSHA-focused workflows by improving data quality, reporting consistency, and audit readiness.",
+          "Yes. Standardized workflows improve consistency and audit readiness.",
       },
       {
-        question: "Can teams reduce manual compliance reporting work?",
+        question: "Can this reduce compliance reporting time?",
         answer:
-          "Yes. Standardized workflows and exports reduce assembly time and reporting rework.",
-      },
-      {
-        question: "Does this help with defensibility?",
-        answer:
-          "Yes. Centralized evidence and repeatable reporting improve defensibility under review.",
+          "Yes. Centralized records and repeatable workflows reduce manual reporting overhead.",
       },
     ],
     internalLinks: [
       { label: "NEA reporting software", href: "/nea-reporting-software" },
       { label: "Asbestos survey software", href: "/asbestos-survey-software" },
-      { label: "Air monitoring software", href: "/air-monitoring-software" },
+      { label: "Environmental compliance software", href: "/environmental-compliance-software" },
     ],
-    ctaLabel: "Start for Free Today",
+    ctaLabel: "Start for Free",
     ctaHref: "/#pricing",
   },
   {
     slug: "/ih-data-management-platform",
     primaryKeyword: "IH data management platform",
     category: "Industrial Hygiene",
-    h1: "IH Data Management Platform for Exposure and Compliance Intelligence",
+    h1: "IH Data Management Platform for Exposure Intelligence",
     heroCopy:
-      "Build a centralized industrial hygiene data backbone for monitoring, NEAs, inspections, and defensible reporting.",
+      "Create a centralized data foundation for industrial hygiene, exposure tracking, and compliance reporting.",
     painPoints: [
-      "Data silos limit trend analysis and operational planning.",
-      "Historical records are difficult to retrieve during audit windows.",
-      "Cross-team reporting standards vary and weaken confidence in outputs.",
+      "Scattered IH records that block trend analysis.",
+      "Weak traceability for historical exposure documentation.",
+      "Inconsistent reporting standards across sites.",
     ],
     workflow: [
-      "Consolidate IH data capture and quality checks in one platform.",
-      "Map records across sites, tasks, and timelines for traceable analysis.",
-      "Support reporting and dashboards with consistent evidence and exports.",
+      "Unify IH records in one governed platform.",
+      "Track exposure history across projects and personnel.",
+      "Support dashboards, audits, and compliance reporting.",
     ],
     regulatoryReferences: [
-      "OSHA-oriented recordkeeping practices for exposure and task documentation.",
-      "EPA-aligned evidence and retention expectations for environmental programs.",
-      "NESHAP-ready support for asbestos-connected documentation pathways.",
+      "OSHA-oriented IH recordkeeping support.",
+      "EPA-aligned evidence and retention workflows.",
+      "NESHAP-related support for asbestos-connected operations.",
     ],
     featureBreakdown: [
-      "Centralized IH dataset",
-      "Cross-site exposure intelligence",
-      "Reporting and export workflows",
-      "Operational defensibility",
+      "Centralized IH records",
+      "Cross-site aggregation",
+      "Reporting and analytics workflows",
+      "Audit-ready documentation",
     ],
     useCases: [
-      "Industrial hygiene leaders standardizing enterprise data architecture.",
-      "Consulting organizations delivering faster analytics to clients.",
-      "Compliance teams reducing audit response timelines.",
+      "Industrial hygiene programs",
+      "Consulting organizations",
+      "Enterprise EHS teams",
     ],
     faqs: [
       {
-        question: "What makes this an IH data management platform?",
+        question: "What does an IH data platform change operationally?",
         answer:
-          "AbateIQ unifies field capture, sampling records, reporting, and historical analysis into one defensible system.",
+          "It improves data quality, reporting speed, and defensibility while reducing compliance blind spots.",
       },
       {
-        question: "Can this scale across multiple teams and sites?",
+        question: "Can AbateIQ support multi-site IH programs?",
         answer:
-          "Yes. Platform workflows are designed for multi-site operations and consistent reporting governance.",
-      },
-      {
-        question: "How does this improve risk reduction?",
-        answer:
-          "Higher data consistency and visibility reduce compliance blind spots and late-cycle reporting errors.",
+          "Yes. Teams can manage records and reporting standards across multiple locations.",
       },
     ],
     internalLinks: [
@@ -464,7 +445,7 @@ export const seoPages: SeoPageContent[] = [
       { label: "Environmental compliance software", href: "/environmental-compliance-software" },
       { label: "Resources hub", href: "/resources" },
     ],
-    ctaLabel: "Start for Free Today",
+    ctaLabel: "Start for Free",
     ctaHref: "/#pricing",
   },
 ];
@@ -485,21 +466,27 @@ export const blogPosts: BlogPost[] = [
     category: "Exposure Assessment",
     primaryKeyword: "negative exposure assessment software",
     summary:
-      "A long-form implementation guide for NEA preparation, validation, and defensibility in regulated workflows.",
-    sections: longSections("negative exposure assessment documentation"),
+      "A practical implementation guide covering NEA fundamentals, required data, common mistakes, and digital workflow execution.",
+    sections: outlinedPostSections([
+      "What is an NEA",
+      "OSHA Requirements",
+      "Required Data",
+      "Common Mistakes",
+      "Digital Workflows",
+    ]),
     faqs: [
       {
-        question: "What should every NEA include?",
+        question: "What is the core purpose of an NEA?",
         answer:
-          "A defensible NEA should include exposure context, methods, evidence references, and clear rationale for conclusions.",
+          "An NEA documents why exposure risk is controlled based on verifiable monitoring and task evidence.",
       },
       {
-        question: "How can software improve NEA quality?",
+        question: "How can digital workflows improve NEA quality?",
         answer:
-          "Software enforces consistency, links supporting evidence, and reduces omissions during report assembly.",
+          "Digital workflows enforce consistency, connect supporting evidence, and reduce manual formatting errors.",
       },
     ],
-    cta: { label: "See NEA Reporting Software", href: "/nea-reporting-software" },
+    cta: { label: "See NEA Software", href: "/nea-reporting-software" },
   },
   {
     slug: "/resources/blog/osha-asbestos-documentation-requirements-explained",
@@ -507,86 +494,60 @@ export const blogPosts: BlogPost[] = [
     category: "OSHA Compliance",
     primaryKeyword: "OSHA asbestos documentation requirements",
     summary:
-      "A practical breakdown of asbestos documentation expectations and implementation guardrails for compliance teams.",
-    sections: longSections("OSHA asbestos documentation"),
+      "An operational breakdown of required asbestos records, survey documentation, monitoring records, and retention workflows.",
+    sections: outlinedPostSections([
+      "Required Records",
+      "Survey Documentation",
+      "Air Monitoring Records",
+      "Retention Requirements",
+    ]),
     faqs: [
       {
-        question: "Which documents are most often missing in asbestos audits?",
+        question: "Which asbestos records are most frequently missing?",
         answer:
-          "Audit gaps commonly include incomplete sampling metadata, weak chain-of-custody details, and inconsistent project records.",
+          "Organizations commonly miss complete sample metadata, custody references, and report-to-source traceability.",
       },
       {
-        question: "How should teams structure asbestos compliance records?",
+        question: "How should retention policies be handled?",
         answer:
-          "Use a standardized workflow that ties field data, evidence, and final reporting outputs together.",
+          "Retention should follow a consistent policy with governed storage and reliable retrieval workflows.",
       },
     ],
     cta: { label: "Explore Asbestos Survey Software", href: "/asbestos-survey-software" },
   },
   {
     slug: "/resources/blog/air-monitoring-reports-required-osha-elements",
-    title: "Air Monitoring Reports: Required OSHA Elements",
+    title: "Air Monitoring Reports: What OSHA Requires",
     category: "Air Monitoring",
     primaryKeyword: "air monitoring software",
     summary:
-      "A field-to-report guide covering required data elements, quality checks, and defensibility practices.",
-    sections: longSections("air monitoring reporting"),
+      "A practical guide to OSHA-relevant air monitoring report elements, data integrity controls, and defensibility.",
+    sections: outlinedPostSections([
+      "What Must Be Included in an Air Monitoring Report",
+      "Sampling and Calibration Data Integrity",
+      "Exceedance Documentation",
+      "Review and Sign-Off Workflows",
+    ]),
     faqs: [
       {
-        question: "What fields should be standardized for air monitoring reports?",
+        question: "Which report elements are essential for defensibility?",
         answer:
-          "Teams should standardize sampling methods, calibration details, contextual notes, thresholds, and review sign-off.",
+          "Sampling details, calibration records, contextual conditions, threshold interpretation, and review sign-off are core elements.",
       },
       {
-        question: "How do you reduce report rework?",
+        question: "How do teams reduce report rework?",
         answer:
-          "Use structured capture workflows and automated report assembly tied to validated source records.",
+          "Use structured data capture and standardized reporting workflows tied to validated source records.",
       },
     ],
     cta: { label: "Explore Air Monitoring Software", href: "/air-monitoring-software" },
   },
-  {
-    slug: "/resources/blog/common-industrial-hygiene-data-management-mistakes",
-    title: "Common Industrial Hygiene Data Management Mistakes",
-    category: "Industrial Hygiene",
-    primaryKeyword: "IH data management",
-    summary:
-      "An authority-style post covering frequent architecture, process, and governance mistakes in IH programs.",
-    sections: longSections("industrial hygiene data management"),
-    faqs: [
-      {
-        question: "What is the biggest IH data governance mistake?",
-        answer:
-          "Treating critical compliance records as ad hoc files instead of structured, governed operational data.",
-      },
-      {
-        question: "How do teams improve IH data reliability?",
-        answer:
-          "Define standards for capture, QA, retention, and reporting in a single platform.",
-      },
-    ],
-    cta: { label: "View IH Data Management Platform", href: "/ih-data-management-platform" },
-  },
-  {
-    slug: "/resources/blog/digital-vs-paper-asbestos-surveys",
-    title: "Digital vs Paper Asbestos Surveys",
-    category: "Asbestos Management",
-    primaryKeyword: "asbestos survey software",
-    summary:
-      "A decision framework comparing digital and paper survey workflows across speed, defensibility, and risk.",
-    sections: longSections("digital asbestos survey workflows"),
-    faqs: [
-      {
-        question: "Why do digital survey workflows reduce compliance risk?",
-        answer:
-          "They improve completeness, traceability, and reporting consistency while reducing manual transcription errors.",
-      },
-      {
-        question: "Can digital workflows improve chain-of-custody quality?",
-        answer:
-          "Yes. Structured digital records keep sample and evidence details synchronized throughout the process.",
-      },
-    ],
-    cta: { label: "Explore Asbestos Survey Software", href: "/asbestos-survey-software" },
-  },
+];
+
+export const futureAuthorityTemplates = [
+  "Case studies",
+  "Client success stories",
+  "Regulatory guides",
+  "IH glossary",
+  "Compliance checklists",
 ];

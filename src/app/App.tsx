@@ -101,6 +101,8 @@ export default function App() {
           primaryKeyword="industrial hygiene software"
           category="Homepage"
           path="/"
+          titleOverride="Industrial Hygiene Software | Asbestos, Air Monitoring & Compliance | AbateIQ"
+          descriptionOverride="Industrial hygiene software for asbestos surveys, air monitoring, and OSHA compliance. Generate NEAs, manage samples, and streamline reporting with AbateIQ."
           breadcrumbs={[{ name: "Home", path: "/" }]}
         />
         <Navigation
@@ -109,7 +111,7 @@ export default function App() {
         />
         <Hero
           onStartTrialClick={() => openAuthDialog("trial")}
-          onViewPricingClick={() => scrollToSection("pricing")}
+          onBookDemoClick={() => scrollToSection("contact")}
         />
         <HomeSeoSections />
         <IOSReleaseSection
