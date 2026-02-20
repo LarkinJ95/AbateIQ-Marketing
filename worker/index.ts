@@ -22,6 +22,9 @@ interface Env {
   CONTACT_UPSTREAM_PATH?: string;
   WAITLIST_UPSTREAM_PATH?: string;
   EMAIL?: SendEmailBinding;
+  GITHUB_OAUTH_ID?: string;
+  GITHUB_OAUTH_SECRET?: string;
+  GITHUB_REPO_PRIVATE?: string;
 }
 
 interface ContactSubmission {
@@ -97,6 +100,125 @@ async function parseJsonBody<T>(request: Request): Promise<T | null> {
 
 function trimTrailingSlash(url: string): string {
   return url.endsWith("/") ? url.slice(0, -1) : url;
+}
+
+function randomHex(bytes: number): string {
+  const values = crypto.getRandomValues(new Uint8Array(bytes));
+  return Array.from(values)
+    .map((value) => value.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function createOauthCallbackHtml(status: "success" | "error", payload: unknown): Response {
+  const content = JSON.stringify(payload);
+  const message = `authorization:github:${status}:${content}`;
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Authorizing Decap...</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        function receiveMessage(event) {
+          if (event.origin !== window.location.origin) {
+            return;
+          }
+          window.opener.postMessage('authorizing:github', event.origin);
+        }
+        window.opener.postMessage('${message.replace(/'/g, "\\'")}', '*');
+        window.addEventListener('message', receiveMessage, false);
+        window.close();
+      })();
+    </script>
+  </body>
+</html>`;
+
+  return new Response(html, {
+    headers: {
+      "content-type": "text/html; charset=utf-8",
+      "cache-control": "no-store",
+    },
+  });
+}
+
+async function handleCmsAuth(url: URL, env: Env): Promise<Response> {
+  const provider = (url.searchParams.get("provider") || "github").toLowerCase();
+  if (provider !== "github") {
+    return jsonResponse({ ok: false, message: "Unsupported provider." }, 400);
+  }
+
+  if (!env.GITHUB_OAUTH_ID) {
+    return jsonResponse({ ok: false, message: "Missing GITHUB_OAUTH_ID secret." }, 503);
+  }
+
+  const isPrivateRepo = Boolean(env.GITHUB_REPO_PRIVATE && env.GITHUB_REPO_PRIVATE !== "0");
+  const scope = isPrivateRepo ? "repo,user" : "public_repo,user";
+  const redirectUri = `https://${url.hostname}/callback?provider=github`;
+  const state = randomHex(16);
+
+  const githubAuthUrl = new URL("https://github.com/login/oauth/authorize");
+  githubAuthUrl.searchParams.set("client_id", env.GITHUB_OAUTH_ID);
+  githubAuthUrl.searchParams.set("redirect_uri", redirectUri);
+  githubAuthUrl.searchParams.set("scope", scope);
+  githubAuthUrl.searchParams.set("state", state);
+
+  return Response.redirect(githubAuthUrl.toString(), 302);
+}
+
+async function handleCmsCallback(url: URL, env: Env): Promise<Response> {
+  const provider = (url.searchParams.get("provider") || "github").toLowerCase();
+  if (provider !== "github") {
+    return createOauthCallbackHtml("error", { error: "Unsupported provider." });
+  }
+
+  if (!env.GITHUB_OAUTH_ID || !env.GITHUB_OAUTH_SECRET) {
+    return createOauthCallbackHtml("error", {
+      error: "Missing GITHUB_OAUTH_ID or GITHUB_OAUTH_SECRET.",
+    });
+  }
+
+  const code = url.searchParams.get("code");
+  if (!code) {
+    return createOauthCallbackHtml("error", { error: "Missing OAuth code." });
+  }
+
+  const redirectUri = `https://${url.hostname}/callback?provider=github`;
+  const tokenResponse = await fetch("https://github.com/login/oauth/access_token", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      accept: "application/json",
+    },
+    body: JSON.stringify({
+      client_id: env.GITHUB_OAUTH_ID,
+      client_secret: env.GITHUB_OAUTH_SECRET,
+      code,
+      redirect_uri: redirectUri,
+    }),
+  });
+
+  if (!tokenResponse.ok) {
+    return createOauthCallbackHtml("error", {
+      error: `GitHub token exchange failed (${tokenResponse.status}).`,
+    });
+  }
+
+  const payload = (await tokenResponse.json()) as {
+    access_token?: string;
+    error?: string;
+    error_description?: string;
+  };
+
+  if (!payload.access_token) {
+    return createOauthCallbackHtml("error", {
+      error: payload.error || "Token not returned by GitHub.",
+      error_description: payload.error_description,
+    });
+  }
+
+  return createOauthCallbackHtml("success", { token: payload.access_token, provider: "github" });
 }
 
 function buildUpstreamUrl(origin: string, path: string): string {
@@ -908,6 +1030,14 @@ async function handleAuth(request: Request, env: Env, pathname: string): Promise
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/auth") {
+      return handleCmsAuth(url, env);
+    }
+
+    if (url.pathname === "/callback") {
+      return handleCmsCallback(url, env);
+    }
 
     if (url.pathname === "/api/health") {
       return jsonResponse({

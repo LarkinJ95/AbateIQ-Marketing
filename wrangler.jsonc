@@ -23,7 +23,8 @@
     "AUTH_FORGOT_PATH": "/auth/forgot-password",
     "AUTH_TRIAL_PATH": "/auth/trial",
     "CONTACT_UPSTREAM_PATH": "/marketing/contact",
-    "WAITLIST_UPSTREAM_PATH": "/marketing/waitlist"
+    "WAITLIST_UPSTREAM_PATH": "/marketing/waitlist",
+    "GITHUB_REPO_PRIVATE": "1"
   },
   "assets": {
     "directory": "./dist",
@@ -48,6 +49,15 @@
     },
     {
       "pattern": "www.abateiq.com",
+      "zone_name": "abateiq.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "cms-auth.abateiq.com/*",
+      "zone_name": "abateiq.com"
+    },
+    {
+      "pattern": "cms-auth.abateiq.com",
       "zone_name": "abateiq.com",
       "custom_domain": true
     }
