@@ -7,15 +7,12 @@
       <script>
         (function () {
           try {
-            var stored = localStorage.getItem("theme");
-            var theme = stored === "dark" || stored === "light" ? stored : "light";
+            var theme = "light";
             var root = document.documentElement;
             root.classList.remove("light", "dark");
             root.classList.add(theme);
             root.setAttribute("data-theme", theme);
-            if (!stored) {
-              localStorage.setItem("theme", "light");
-            }
+            localStorage.setItem("theme", "light");
           } catch (_) {}
         })();
       </script>
