@@ -63,7 +63,7 @@ export function HomepageRefresh() {
         <h1 className="text-4xl lg:text-6xl tracking-tight">
           Industrial Hygiene Intelligence — Built for Compliance, Not Spreadsheets
         </h1>
-        <p className="mx-auto mt-6 max-w-4xl text-lg text-[var(--muted)]">
+        <p className="mx-auto mt-6 max-w-4xl text-lg text-[var(--muted-foreground)]">
           AbateIQ unifies asbestos surveys, air monitoring, exposure tracking, and compliance reporting into one defensible system. Stay audit-ready, reduce risk, and eliminate fragmented workflows.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -74,7 +74,7 @@ export function HomepageRefresh() {
             Book Demo
           </a>
         </div>
-        <p className="mt-6 text-sm text-[var(--muted)]">
+        <p className="mt-6 text-sm text-[var(--muted-foreground)]">
           Trusted by field teams who need audit-ready industrial hygiene documentation.
         </p>
       </section>
@@ -82,7 +82,7 @@ export function HomepageRefresh() {
       <section id="problem" className="border-y border-[var(--border)] bg-[var(--surface)] py-16">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-3xl">Compliance Shouldn’t Depend on Spreadsheets</h2>
-          <p className="mt-4 max-w-4xl text-[var(--muted)]">
+          <p className="mt-4 max-w-4xl text-[var(--muted-foreground)]">
             Industrial hygienists and environmental teams face increasing regulatory pressure while managing disconnected tools, manual reporting, and scattered exposure data.
           </p>
           <ul className="mt-6 grid gap-3 text-[var(--text)] md:grid-cols-2">
@@ -101,7 +101,7 @@ export function HomepageRefresh() {
           {workflowSteps.map((step) => (
             <a key={step.title} href={step.href} className="rounded-lg border border-[var(--border)] bg-white p-5 hover:border-[#2563eb]">
               <h3 className="text-xl">{step.title}</h3>
-              <p className="mt-2 text-[var(--muted)]">{step.body}</p>
+              <p className="mt-2 text-[var(--muted-foreground)]">{step.body}</p>
             </a>
           ))}
         </div>
@@ -114,7 +114,7 @@ export function HomepageRefresh() {
             {capabilityTiles.map((tile) => (
               <a key={tile.title} href={tile.href} className="rounded-lg border border-[var(--border)] bg-white p-5 hover:border-[#2563eb]">
                 <h3 className="text-xl">{tile.title}</h3>
-                <p className="mt-2 text-[var(--muted)]">{tile.body}</p>
+                <p className="mt-2 text-[var(--muted-foreground)]">{tile.body}</p>
               </a>
             ))}
           </div>
