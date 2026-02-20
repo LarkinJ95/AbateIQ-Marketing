@@ -6,7 +6,7 @@ backend:
   auth_endpoint: /api/cms/auth
 
 local_backend: true
-publish_mode: editorial_workflow
+publish_mode: simple
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -18,8 +18,6 @@ collections:
     create: false
     extension: "json"
     format: "json"
-    media_folder: "public/uploads/pages"
-    public_folder: "/uploads/pages"
     identifier_field: "slug"
     summary: "{{slug}}"
     fields:
@@ -54,8 +52,6 @@ collections:
     create: false
     extension: "json"
     format: "json"
-    media_folder: "public/uploads/posts"
-    public_folder: "/uploads/posts"
     identifier_field: "slug"
     summary: "{{title}}"
     fields:
