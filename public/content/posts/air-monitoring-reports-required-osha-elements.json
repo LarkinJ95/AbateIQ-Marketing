@@ -8,44 +8,44 @@
     {
       "heading": "What Must Be Included in an Air Monitoring Report",
       "body": [
-        "Identify core report elements for defensible air monitoring documentation.",
-        "Explain data fields needed for field-to-report traceability.",
-        "Describe standardized formatting practices that reduce review delays."
+        "A defensible air monitoring report must clearly document who was sampled, what task was performed, where the work occurred, and how the sample was collected and analyzed.",
+        "Core elements include project information, employee or area sample identification, sampling duration, flow rates, sample volumes, analytical method, laboratory results, and applicable exposure limits.",
+        "Consistent formatting and complete data fields reduce review delays and ensure reports withstand regulatory scrutiny."
       ]
     },
     {
       "heading": "Sampling and Calibration Data Integrity",
       "body": [
-        "Explain sampling and calibration data quality controls.",
-        "Describe validation steps before report generation.",
-        "Show how structured workflows reduce transcription and omission errors."
+        "Accurate calibration records are essential for defensible air monitoring. Reports should document pre- and post-sampling calibration values, calibration method, and equipment identifiers.",
+        "Quality control measures such as field blanks, media lot tracking, and pump serial numbers help verify sample integrity.",
+        "Structured workflows that link field data directly to reports reduce transcription errors and ensure traceability."
       ]
     },
     {
       "heading": "Exceedance Documentation",
       "body": [
-        "Describe how exceedances should be captured and communicated.",
-        "Explain why contextual evidence matters for defensibility.",
-        "Show how to align exceedance records with reporting workflows."
+        "If exposure limits are exceeded, reports must clearly document the result, the applicable limit, and the context of the work performed.",
+        "Supporting information such as controls in place, work practices, and environmental conditions helps explain results and supports corrective actions.",
+        "Clear exceedance documentation protects employers by demonstrating due diligence and a proactive response."
       ]
     },
     {
       "heading": "Review and Sign-Off Workflows",
       "body": [
-        "Outline reviewer sign-off and QA responsibilities.",
-        "Describe versioning and change controls for reporting.",
-        "Provide a repeatable workflow for publication-ready outputs."
+        "Air monitoring reports should include a formal review and sign-off process to ensure accuracy and completeness.",
+        "Version control and change tracking help maintain defensibility by documenting revisions.",
+        "A repeatable workflow ensures that every report meets the same quality standards before being issued to clients or regulators."
       ]
     }
   ],
   "faqs": [
     {
       "question": "Which report elements are essential for defensibility?",
-      "answer": "Sampling details, calibration records, contextual conditions, threshold interpretation, and review sign-off are core elements."
+      "answer": "Sampling details, calibration records, contextual conditions, threshold interpretation, and documented review sign-off are essential for defensible air monitoring reports."
     },
     {
       "question": "How do teams reduce report rework?",
-      "answer": "Use structured data capture and standardized reporting workflows tied to validated source records."
+      "answer": "Teams reduce rework by using structured data capture, validating calibration records, and standardizing report templates tied to verified field data."
     }
   ],
   "cta": {

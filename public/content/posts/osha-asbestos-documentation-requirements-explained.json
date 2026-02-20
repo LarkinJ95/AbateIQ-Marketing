@@ -8,44 +8,44 @@
     {
       "heading": "Required Records",
       "body": [
-        "Outline required record categories used in asbestos compliance programs.",
-        "Describe operational controls for completeness and consistency.",
-        "Explain how missing records create regulatory and legal exposure."
+        "OSHA asbestos standards require employers to maintain records demonstrating compliance with exposure assessments, training, medical surveillance, and work practices.",
+        "These records include surveys, air monitoring data, employee exposure records, and documentation of controls.",
+        "Incomplete records can result in regulatory penalties and legal exposure."
       ]
     },
     {
       "heading": "Survey Documentation",
       "body": [
-        "Describe survey metadata, location fidelity, and chain-of-custody requirements.",
-        "Show what high-quality asbestos survey documentation should include.",
-        "Highlight common survey documentation gaps and how to prevent them."
+        "High-quality asbestos survey documentation includes material locations, sampling results, chain-of-custody records, and analytical reports.",
+        "Accurate location data and clear labeling ensure materials can be safely managed.",
+        "Common gaps include missing sample metadata and incomplete material descriptions."
       ]
     },
     {
       "heading": "Air Monitoring Records",
       "body": [
-        "Explain what must be retained from sampling and calibration workflows.",
-        "Connect monitoring records to defensible reporting outputs.",
-        "Describe practical QA checks before final report publication."
+        "Air monitoring records must include sampling methods, calibration data, sample results, and exposure limit comparisons.",
+        "These records support defensible exposure assessments and NEA determinations.",
+        "Quality checks should verify calibration logs, sample durations, and laboratory reports."
       ]
     },
     {
       "heading": "Retention Requirements",
       "body": [
-        "Summarize retention policy considerations for asbestos documentation.",
-        "Show how to implement governed retention in digital workflows.",
-        "Describe retrieval and audit response best practices."
+        "Asbestos exposure records must be retained for extended periods, often for the duration of employment plus 30 years, depending on applicable regulations.",
+        "Digital storage systems help ensure consistent retention and rapid retrieval during audits.",
+        "Clear retention policies and governed storage reduce compliance risk."
       ]
     }
   ],
   "faqs": [
     {
       "question": "Which asbestos records are most frequently missing?",
-      "answer": "Organizations commonly miss complete sample metadata, custody references, and report-to-source traceability."
+      "answer": "Organizations often miss complete sample metadata, chain-of-custody documentation, and traceability between reports and source data."
     },
     {
       "question": "How should retention policies be handled?",
-      "answer": "Retention should follow a consistent policy with governed storage and reliable retrieval workflows."
+      "answer": "Retention policies should follow regulatory requirements and use governed digital storage to ensure records remain accessible and secure."
     }
   ],
   "cta": {

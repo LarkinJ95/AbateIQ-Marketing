@@ -8,52 +8,52 @@
     {
       "heading": "What is an NEA",
       "body": [
-        "Placeholder long-form authority content for What is an NEA.",
-        "Define the operational purpose of an NEA, when it is used, and how it supports defensible compliance decisions.",
-        "Describe how reliable source data improves NEA quality and reduces challenge risk during review."
+        "A Negative Exposure Assessment (NEA) documents that employee exposures to a hazardous substance are below applicable regulatory limits under specific work conditions.",
+        "NEAs are commonly used in asbestos, lead, and silica programs to support compliance decisions and demonstrate the effectiveness of controls.",
+        "Reliable source data, including air monitoring results and task documentation, is critical for producing a defensible NEA."
       ]
     },
     {
       "heading": "OSHA Requirements",
       "body": [
-        "Summarize OSHA-oriented documentation expectations relevant to NEA workflows.",
-        "Explain traceability requirements and why linked evidence matters.",
-        "Outline review standards and quality controls for final reporting."
+        "OSHA standards such as 29 CFR 1926.1101 for asbestos require employers to assess exposures and maintain documentation supporting their determinations.",
+        "Traceability is essential—NEAs should link directly to air monitoring data, sampling methods, and descriptions of work practices.",
+        "Final NEA reports should undergo review and quality control to ensure accuracy and defensibility."
       ]
     },
     {
       "heading": "Required Data",
       "body": [
-        "List required data elements and why each contributes to defensibility.",
-        "Show how missing context creates risk in NEA conclusions.",
-        "Describe standardized data capture workflows that reduce omissions."
+        "Key NEA data includes project details, description of operations, controls used, sampling methods, employee tasks, monitoring results, and exposure limit comparisons.",
+        "Missing context—such as work practices or environmental conditions—can undermine the validity of conclusions.",
+        "Standardized data capture workflows reduce omissions and improve consistency."
       ]
     },
     {
       "heading": "Common Mistakes",
       "body": [
-        "Call out frequent reporting and formatting mistakes.",
-        "Explain consequences of inconsistent historical references.",
-        "Provide remediation steps for improving repeatable quality."
+        "Common mistakes include incomplete sampling documentation, inconsistent formatting, and failure to describe controls or work practices.",
+        "Referencing outdated monitoring data or unrelated tasks can invalidate conclusions.",
+        "Establishing standardized templates and review procedures helps prevent these issues."
       ]
     },
     {
       "heading": "Digital Workflows",
       "body": [
-        "Explain how digital workflows improve speed and consistency.",
-        "Show how linked records improve evidence defensibility.",
-        "Provide a phased rollout pattern for teams moving off spreadsheets."
+        "Digital workflows improve NEA quality by linking monitoring data, task descriptions, and supporting documentation.",
+        "Automated calculations and threshold comparisons reduce human error.",
+        "Organizations transitioning from spreadsheets can implement phased digital workflows to improve efficiency and defensibility."
       ]
     }
   ],
   "faqs": [
     {
       "question": "What is the core purpose of an NEA?",
-      "answer": "An NEA documents why exposure risk is controlled based on verifiable monitoring and task evidence."
+      "answer": "An NEA documents that exposure risks are controlled based on verifiable monitoring data and consistent work practices."
     },
     {
       "question": "How can digital workflows improve NEA quality?",
-      "answer": "Digital workflows enforce consistency, connect supporting evidence, and reduce manual formatting errors."
+      "answer": "Digital workflows enforce consistency, connect supporting evidence, and reduce manual formatting errors, improving defensibility."
     }
   ],
   "cta": {
