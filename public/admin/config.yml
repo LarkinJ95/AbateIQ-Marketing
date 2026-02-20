@@ -10,10 +10,14 @@ publish_mode: editorial_workflow
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
+media_library:
+  name: github
 
 collections:
   - name: "seo_pages"
     label: "SEO Pages"
+    media_folder: "public/uploads/pages"
+    public_folder: "/uploads/pages"
     files:
       - name: "asbestos_survey_software"
         label: "Asbestos Survey Software"
@@ -163,6 +167,8 @@ collections:
 
   - name: "blog_posts"
     label: "Blog Posts"
+    media_folder: "public/uploads/posts"
+    public_folder: "/uploads/posts"
     files:
       - name: "nea_post"
         label: "How to Create a Negative Exposure Assessment (NEA)"
