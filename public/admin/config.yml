@@ -6,7 +6,7 @@ backend:
   auth_endpoint: /api/cms/auth
 
 local_backend: true
-publish_mode: simple
+publish_mode: editorial_workflow
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -20,11 +20,14 @@ collections:
     format: "json"
     identifier_field: "slug"
     summary: "{{slug}}"
+    media_folder: "public/uploads/pages"
+    public_folder: "/uploads/pages"
     fields:
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
       - { label: "Category", name: "category", widget: "string" }
       - { label: "H1", name: "h1", widget: "string" }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
       - { label: "Hero Copy", name: "heroCopy", widget: "text" }
       - { label: "Pain Points", name: "painPoints", widget: "list", field: { label: "Pain Point", name: "item", widget: "string" } }
       - { label: "Workflow Steps", name: "workflow", widget: "list", field: { label: "Step", name: "item", widget: "string" } }
@@ -50,16 +53,18 @@ collections:
     label: "Blog Posts"
     folder: "public/content/posts"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "json"
     format: "json"
-    identifier_field: "slug"
+    media_folder: "public/uploads/posts"
+    public_folder: "/uploads/posts"
     summary: "{{title}}"
     fields:
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Category", name: "category", widget: "string" }
       - { label: "Primary Keyword", name: "primaryKeyword", widget: "string" }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
       - { label: "Summary", name: "summary", widget: "text" }
       - label: "Sections"
         name: "sections"

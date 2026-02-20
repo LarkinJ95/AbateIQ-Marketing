@@ -9,6 +9,7 @@ interface SeoMetaProps {
   descriptionOverride?: string;
   faqs?: FaqItem[];
   breadcrumbs?: Array<{ name: string; path: string }>;
+  emitCoreSchemas?: boolean;
 }
 
 const SITE_URL = "https://abateiq.com";
@@ -18,6 +19,16 @@ function upsertMetaDescription(content: string) {
   if (!tag) {
     tag = document.createElement("meta");
     tag.setAttribute("name", "description");
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("content", content);
+}
+
+function upsertMetaRobots(content: string) {
+  let tag = document.querySelector('meta[name="robots"]');
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute("name", "robots");
     document.head.appendChild(tag);
   }
   tag.setAttribute("content", content);
@@ -41,6 +52,7 @@ export function SeoMeta({
   descriptionOverride,
   faqs = [],
   breadcrumbs = [],
+  emitCoreSchemas = true,
 }: SeoMetaProps) {
   const pageUrl = `${SITE_URL}${path}`;
   const title = titleOverride || `${primaryKeyword} | ${category} | AbateIQ`;
@@ -51,6 +63,7 @@ export function SeoMeta({
   useEffect(() => {
     document.title = title;
     upsertMetaDescription(description);
+    upsertMetaRobots("index,follow");
     upsertCanonical(pageUrl);
   }, [description, pageUrl, title]);
 
@@ -110,8 +123,12 @@ export function SeoMeta({
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+      {emitCoreSchemas ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+      ) : null}
+      {emitCoreSchemas ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+      ) : null}
       {faqSchema ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       ) : null}

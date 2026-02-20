@@ -46,6 +46,14 @@ export function SeoProductPage({ page }: { page: SeoPageContent }) {
           <p className="text-sm uppercase tracking-[0.2em] text-[#93c5fd]">{page.primaryKeyword}</p>
           <h1 className="mt-3 text-4xl lg:text-6xl">{page.h1}</h1>
           <p className="mt-5 text-lg text-gray-200">{autoLinkText(page.heroCopy)}</p>
+          {page.heroImage ? (
+            <img
+              src={page.heroImage}
+              alt={page.h1}
+              className="mt-6 w-full rounded-xl border border-white/20 object-cover"
+              loading="lazy"
+            />
+          ) : null}
           <a
             href={page.ctaHref}
             className="mt-8 inline-block rounded-md bg-[#fbbf24] px-5 py-3 font-medium text-black hover:bg-[#f59e0b]"
@@ -164,7 +172,7 @@ export function ResourcesHomePage() {
         path="/resources"
       />
       <section className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-4">
           <a href="/resources/blog" className="rounded-lg border border-gray-200 bg-white p-6 hover:border-[#2563eb]">
             <h2 className="text-2xl text-gray-900">Blog</h2>
             <p className="mt-2 text-gray-700">Long-form compliance and workflow content targeting high-intent industrial hygiene keywords.</p>
@@ -176,6 +184,10 @@ export function ResourcesHomePage() {
           <a href="/resources/templates" className="rounded-lg border border-gray-200 bg-white p-6 hover:border-[#2563eb]">
             <h2 className="text-2xl text-gray-900">Templates</h2>
             <p className="mt-2 text-gray-700">Ready-to-use reporting and workflow templates for regulated field and office teams.</p>
+          </a>
+          <a href="/resources/brand/press-kit" className="rounded-lg border border-gray-200 bg-white p-6 hover:border-[#2563eb]">
+            <h2 className="text-2xl text-gray-900">Brand Press Kit</h2>
+            <p className="mt-2 text-gray-700">Official AbateIQ brand descriptions, logos, and company profile copy.</p>
           </a>
         </div>
       </section>
@@ -262,6 +274,22 @@ export function ResourcesTemplatesPage() {
 }
 
 export function BlogPostPage({ post }: { post: BlogPost }) {
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    url: `https://abateiq.com${post.slug}`,
+    author: { "@type": "Organization", name: "AbateIQ" },
+    publisher: {
+      "@type": "Organization",
+      name: "AbateIQ",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://abateiq.com/assets/brand/logo.png",
+      },
+    },
+  };
+
   return (
     <>
       <SeoMeta
@@ -276,12 +304,21 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
           { name: post.title, path: post.slug },
         ]}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       <section className="bg-[#111827] py-16 text-white">
         <div className="mx-auto max-w-4xl px-6">
           <p className="text-xs uppercase tracking-[0.2em] text-[#93c5fd]">{post.category}</p>
           <h1 className="mt-2 text-4xl">{post.title}</h1>
           <p className="mt-4 text-gray-300">{autoLinkText(post.summary)}</p>
+          {post.featuredImage ? (
+            <img
+              src={post.featuredImage}
+              alt={post.title}
+              className="mt-6 w-full rounded-xl border border-white/20 object-cover"
+              loading="lazy"
+            />
+          ) : null}
         </div>
       </section>
 
@@ -301,9 +338,185 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
       <FaqBlock faqs={post.faqs} />
 
       <section className="mx-auto max-w-4xl px-6 pb-16">
+        <p className="mb-4 text-sm text-gray-600">
+          <a href="/" className="text-[#2563eb] hover:underline">Back to AbateIQ homepage</a>
+        </p>
         <a href={post.cta.href} className="inline-block rounded-md bg-[#fbbf24] px-5 py-3 font-medium text-black hover:bg-[#f59e0b]">
           {post.cta.label}
         </a>
+      </section>
+    </>
+  );
+}
+
+export function FeaturesPage() {
+  return (
+    <>
+      <SeoMeta
+        primaryKeyword="industrial hygiene software features"
+        category="Features"
+        path="/features"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Features", path: "/features" },
+        ]}
+      />
+      <section className="bg-[#111827] py-16 text-white">
+        <div className="mx-auto max-w-6xl px-6">
+          <h1 className="text-4xl">AbateIQ Features</h1>
+          <p className="mt-3 text-gray-300">
+            Explore core capabilities for asbestos surveys, air monitoring, NEA generation, and industrial hygiene compliance reporting.
+          </p>
+        </div>
+      </section>
+      <section className="mx-auto max-w-6xl px-6 py-12">
+        <div className="grid gap-6 md:grid-cols-2">
+          <a href="/asbestos-survey-software" className="rounded-lg border border-gray-200 bg-white p-6 hover:border-[#2563eb]">
+            <h2 className="text-2xl text-gray-900">Asbestos Survey Management</h2>
+            <p className="mt-2 text-gray-700">Digitize inspections, label samples, and produce compliance-ready reports.</p>
+          </a>
+          <a href="/air-monitoring-software" className="rounded-lg border border-gray-200 bg-white p-6 hover:border-[#2563eb]">
+            <h2 className="text-2xl text-gray-900">Air Monitoring and Exposure Tracking</h2>
+            <p className="mt-2 text-gray-700">Capture samples, calibrations, and lab results in one system.</p>
+          </a>
+          <a href="/nea-reporting-software" className="rounded-lg border border-gray-200 bg-white p-6 hover:border-[#2563eb]">
+            <h2 className="text-2xl text-gray-900">NEA Reporting</h2>
+            <p className="mt-2 text-gray-700">Generate defensible negative exposure assessments with audit-ready evidence.</p>
+          </a>
+          <a href="/industrial-hygiene-software" className="rounded-lg border border-gray-200 bg-white p-6 hover:border-[#2563eb]">
+            <h2 className="text-2xl text-gray-900">Industrial Hygiene Data Platform</h2>
+            <p className="mt-2 text-gray-700">Maintain exposure history across projects, sites, and personnel.</p>
+          </a>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function PricingPage() {
+  return (
+    <>
+      <SeoMeta
+        primaryKeyword="industrial hygiene software pricing"
+        category="Pricing"
+        path="/pricing"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Pricing", path: "/pricing" },
+        ]}
+      />
+      <section className="bg-[#111827] py-16 text-white">
+        <div className="mx-auto max-w-6xl px-6">
+          <h1 className="text-4xl">AbateIQ Pricing</h1>
+          <p className="mt-3 text-gray-300">
+            Choose Free, Starter, Pro, or Enterprise based on your team size and compliance depth.
+          </p>
+          <a href="/#pricing" className="mt-6 inline-block rounded-md bg-[#fbbf24] px-5 py-3 font-medium text-black hover:bg-[#f59e0b]">
+            View Pricing Table
+          </a>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function LoginPage() {
+  return (
+    <>
+      <SeoMeta
+        primaryKeyword="abateiq login"
+        category="Login"
+        path="/login"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Login", path: "/login" },
+        ]}
+      />
+      <section className="mx-auto max-w-3xl px-6 py-20 text-center">
+        <h1 className="text-4xl text-gray-900">Login to AbateIQ</h1>
+        <p className="mt-4 text-gray-700">Access your compliance workspace and exposure reporting tools.</p>
+        <a href="https://app.abateiq.com" className="mt-6 inline-block rounded-md bg-[#111827] px-5 py-3 font-medium text-white hover:bg-[#1f2937]">
+          Open App Login
+        </a>
+      </section>
+    </>
+  );
+}
+
+export function CompanyPage() {
+  return (
+    <>
+      <SeoMeta
+        primaryKeyword="AbateIQ company"
+        category="Company"
+        path="/company"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Company", path: "/company" },
+        ]}
+      />
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <h1 className="text-4xl text-gray-900">AbateIQ Company</h1>
+        <p className="mt-4 text-gray-700">
+          AbateIQ is industrial hygiene software built to manage asbestos surveys, air monitoring, exposure tracking, and compliance reporting.
+        </p>
+        <h2 className="mt-10 text-2xl text-gray-900">Mission</h2>
+        <p className="mt-3 text-gray-700">
+          We help industrial hygiene and environmental teams replace spreadsheet-heavy workflows with defensible, audit-ready systems.
+        </p>
+        <h2 className="mt-10 text-2xl text-gray-900">Contact</h2>
+        <p className="mt-3 text-gray-700">Email: <a href="mailto:support@abateiq.com" className="text-[#2563eb] hover:underline">support@abateiq.com</a></p>
+        <p className="mt-1 text-gray-700">Location: United States</p>
+        <div className="mt-6 flex gap-4 text-sm">
+          <a href="https://www.linkedin.com/company/abateiq" className="text-[#2563eb] hover:underline">LinkedIn</a>
+          <a href="https://github.com/abateiq" className="text-[#2563eb] hover:underline">GitHub</a>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function BrandPressKitPage() {
+  return (
+    <>
+      <SeoMeta
+        primaryKeyword="AbateIQ press kit"
+        category="Brand"
+        path="/resources/brand/press-kit"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Resources", path: "/resources" },
+          { name: "Brand Press Kit", path: "/resources/brand/press-kit" },
+        ]}
+      />
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <h1 className="text-4xl text-gray-900">AbateIQ Brand Press Kit</h1>
+        <p className="mt-4 text-gray-700">
+          Official brand assets and copy for media, directories, and partners linking to AbateIQ.
+        </p>
+
+        <h2 className="mt-10 text-2xl text-gray-900">Logo Downloads</h2>
+        <ul className="mt-3 space-y-2 text-gray-700">
+          <li>• <a href="/assets/brand/logo.png" className="text-[#2563eb] hover:underline">Primary logo PNG</a></li>
+        </ul>
+
+        <h2 className="mt-10 text-2xl text-gray-900">LinkedIn Company Description</h2>
+        <p className="mt-3 text-gray-700">
+          AbateIQ is industrial hygiene software for asbestos surveys, air monitoring, exposure tracking, and compliance reporting. We help teams stay audit-ready with defensible documentation.
+        </p>
+
+        <h2 className="mt-10 text-2xl text-gray-900">GitHub Org Bio</h2>
+        <p className="mt-3 text-gray-700">
+          Industrial hygiene software for asbestos survey workflows, air monitoring, NEA generation, and compliance reporting.
+        </p>
+
+        <h2 className="mt-10 text-2xl text-gray-900">Product Hunt Tagline</h2>
+        <p className="mt-3 text-gray-700">Industrial hygiene software for audit-ready compliance reporting.</p>
+
+        <h2 className="mt-10 text-2xl text-gray-900">Crunchbase Short Description</h2>
+        <p className="mt-3 text-gray-700">
+          AbateIQ builds industrial hygiene software for asbestos, air monitoring, exposure data management, and compliance documentation.
+        </p>
       </section>
     </>
   );

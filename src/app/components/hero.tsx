@@ -20,10 +20,13 @@ export function Hero({ onStartTrialClick, onBookDemoClick }: HeroProps) {
       <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="mb-6 text-4xl lg:text-6xl tracking-tight">
-            Industrial Hygiene Software for Asbestos, Air Monitoring & Compliance
+            AbateIQ | Industrial Hygiene Software for Asbestos, Air Monitoring & Compliance
           </h1>
           <p className="text-lg lg:text-xl text-gray-300 mb-8">
             AbateIQ is a purpose-built industrial hygiene platform designed to manage asbestos surveys, air monitoring, exposure data, and compliance workflows in one unified system.
+          </p>
+          <p className="text-base lg:text-lg text-gray-300 mb-6">
+            AbateIQ is industrial hygiene software designed to manage asbestos surveys, air monitoring, exposure tracking, and compliance reporting-so teams stay audit-ready with defensible documentation.
           </p>
           <p className="text-base lg:text-lg text-gray-300 mb-8">
             Eliminate fragmented spreadsheets. Reduce compliance risk. Stay audit-ready.

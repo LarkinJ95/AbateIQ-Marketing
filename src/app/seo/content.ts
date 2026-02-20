@@ -13,6 +13,7 @@ export interface SeoPageContent {
   primaryKeyword: string;
   category: string;
   h1: string;
+  heroImage?: string;
   heroCopy: string;
   painPoints: string[];
   workflow: string[];
@@ -30,6 +31,7 @@ export interface BlogPost {
   title: string;
   category: string;
   primaryKeyword: string;
+  featuredImage?: string;
   summary: string;
   sections: SeoSection[];
   faqs: FaqItem[];

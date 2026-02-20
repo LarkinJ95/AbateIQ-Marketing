@@ -1,11 +1,10 @@
 import { Button } from "./ui/button";
 
 interface NavigationProps {
-  onLoginClick: () => void;
   onStartTrialClick: () => void;
 }
 
-export function Navigation({ onLoginClick, onStartTrialClick }: NavigationProps) {
+export function Navigation({ onStartTrialClick }: NavigationProps) {
   return (
     <nav className="bg-[#1f1f1f] border-b border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -19,38 +18,28 @@ export function Navigation({ onLoginClick, onStartTrialClick }: NavigationProps)
           
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#platform" className="text-gray-300 hover:text-white transition">
-              Platform
+            <a href="/features" className="text-gray-300 hover:text-white transition">
+              Features
             </a>
-            <a href="#ios-release" className="text-gray-300 hover:text-white transition">
-              iOS Release
-            </a>
-            <a href="#operations" className="text-gray-300 hover:text-white transition">
-              Operations
-            </a>
-            <a href="#pricing" className="text-gray-300 hover:text-white transition">
+            <a href="/pricing" className="text-gray-300 hover:text-white transition">
               Pricing
             </a>
             <a href="/resources" className="text-gray-300 hover:text-white transition">
               Resources
             </a>
-            <a href="#demo" className="text-gray-300 hover:text-white transition">
-              Demo
+            <a href="/login" className="text-gray-300 hover:text-white transition">
+              Login
             </a>
-            <a href="#contact" className="text-gray-300 hover:text-white transition">
+            <a href="/company" className="text-gray-300 hover:text-white transition">
               Contact
             </a>
           </div>
           
           {/* CTA Buttons */}
           <div className="flex items-center gap-3">
-            <Button 
-              variant="ghost" 
-              className="text-white hover:text-[#fbbf24]"
-              onClick={onLoginClick}
-            >
+            <a href="/login" className="text-white hover:text-[#fbbf24] transition">
               Login
-            </Button>
+            </a>
             <Button
               className="bg-[#fbbf24] hover:bg-[#f59e0b] text-black"
               onClick={onStartTrialClick}

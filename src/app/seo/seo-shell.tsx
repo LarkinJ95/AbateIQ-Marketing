@@ -5,11 +5,11 @@ interface ShellProps {
 }
 
 const seoLinks = [
-  { label: "Asbestos Survey", href: "/asbestos-survey-software" },
-  { label: "Air Monitoring", href: "/air-monitoring-software" },
-  { label: "Industrial Hygiene", href: "/industrial-hygiene-software" },
-  { label: "NEA Reporting", href: "/nea-reporting-software" },
+  { label: "Features", href: "/features" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Resources", href: "/resources" },
+  { label: "Login", href: "/login" },
+  { label: "Contact", href: "/company" },
 ];
 
 export function SeoShell({ children }: ShellProps) {

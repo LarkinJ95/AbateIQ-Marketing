@@ -22,8 +22,13 @@ import { getDashboardUrl } from "../lib/env";
 import { SeoMeta } from "./seo/seo-meta";
 import { SeoShell } from "./seo/seo-shell";
 import {
+  BrandPressKitPage,
   BlogPostPage,
+  CompanyPage,
+  FeaturesPage,
+  LoginPage,
   NotFoundSeoPage,
+  PricingPage,
   ResourcesBlogPage,
   ResourcesGuidesPage,
   ResourcesHomePage,
@@ -130,18 +135,58 @@ export default function App() {
   }
 
   if (pathname === "/") {
+    const homepageEntityGraph = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://abateiq.com/#org",
+          name: "AbateIQ",
+          url: "https://abateiq.com/",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://abateiq.com/assets/brand/logo.png",
+          },
+          sameAs: [
+            "https://www.linkedin.com/company/abateiq",
+            "https://github.com/abateiq",
+          ],
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://abateiq.com/#software",
+          name: "AbateIQ",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          url: "https://abateiq.com/",
+          publisher: { "@id": "https://abateiq.com/#org" },
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://abateiq.com/#website",
+          url: "https://abateiq.com/",
+          name: "AbateIQ",
+          publisher: { "@id": "https://abateiq.com/#org" },
+        },
+      ],
+    };
+
     return (
       <div className="min-h-screen">
         <SeoMeta
           primaryKeyword="industrial hygiene software"
           category="Homepage"
           path="/"
-          titleOverride="Industrial Hygiene Software | Asbestos, Air Monitoring & Compliance | AbateIQ"
+          titleOverride="AbateIQ | Industrial Hygiene Software for Asbestos, Air Monitoring & Compliance"
           descriptionOverride="Industrial hygiene software for asbestos surveys, air monitoring, and OSHA compliance. Generate NEAs, manage samples, and streamline reporting with AbateIQ."
+          emitCoreSchemas={false}
           breadcrumbs={[{ name: "Home", path: "/" }]}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageEntityGraph) }}
+        />
         <Navigation
-          onLoginClick={() => openAuthDialog("signin")}
           onStartTrialClick={() => openAuthDialog("trial")}
         />
         <Hero
@@ -210,6 +255,46 @@ export default function App() {
     return (
       <SeoShell>
         <ResourcesBlogPage posts={cmsBlogPosts || undefined} />
+      </SeoShell>
+    );
+  }
+
+  if (pathname === "/features") {
+    return (
+      <SeoShell>
+        <FeaturesPage />
+      </SeoShell>
+    );
+  }
+
+  if (pathname === "/pricing") {
+    return (
+      <SeoShell>
+        <PricingPage />
+      </SeoShell>
+    );
+  }
+
+  if (pathname === "/login") {
+    return (
+      <SeoShell>
+        <LoginPage />
+      </SeoShell>
+    );
+  }
+
+  if (pathname === "/company") {
+    return (
+      <SeoShell>
+        <CompanyPage />
+      </SeoShell>
+    );
+  }
+
+  if (pathname === "/resources/brand/press-kit") {
+    return (
+      <SeoShell>
+        <BrandPressKitPage />
       </SeoShell>
     );
   }
