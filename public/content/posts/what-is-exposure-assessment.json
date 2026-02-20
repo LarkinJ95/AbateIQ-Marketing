@@ -1,0 +1,40 @@
+{
+  "slug": "/resources/blog/what-is-exposure-assessment",
+  "title": "What Is an Exposure Assessment in Industrial Hygiene?",
+  "category": "Industrial Hygiene",
+  "primaryKeyword": "exposure assessment industrial hygiene",
+  "summary": "Understand exposure assessments, why they matter, and how they protect workers in hazardous environments.",
+  "sections": [
+    {
+      "heading": "What Is an Exposure Assessment?",
+      "body": [
+        "An exposure assessment evaluates the level of worker exposure to hazardous substances or conditions during job tasks.",
+        "Industrial hygienists use exposure assessments to determine risks and select appropriate controls."
+      ]
+    },
+    {
+      "heading": "Why Exposure Assessments Matter",
+      "body": [
+        "They protect worker health, support OSHA compliance, and guide engineering and administrative controls.",
+        "Accurate exposure data prevents both under-protection and unnecessary PPE requirements."
+      ]
+    },
+    {
+      "heading": "How Exposure Assessments Are Conducted",
+      "body": [
+        "Assessments include task observation, air monitoring, review of materials, and comparison to regulatory limits.",
+        "Results guide safety decisions and documentation."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Who performs exposure assessments?",
+      "answer": "Typically industrial hygienists or trained EHS professionals."
+    }
+  ],
+  "cta": {
+    "label": "See Exposure Assessment Tools",
+    "href": "/exposure-assessment-software"
+  }
+}

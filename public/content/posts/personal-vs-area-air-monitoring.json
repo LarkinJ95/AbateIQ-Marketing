@@ -1,0 +1,35 @@
+{
+  "slug": "/resources/blog/personal-vs-area-air-monitoring",
+  "title": "Personal vs Area Air Monitoring: When to Use Each",
+  "category": "Air Monitoring",
+  "primaryKeyword": "personal vs area air sampling",
+  "summary": "Understand the differences between personal and area air monitoring and when each method is appropriate.",
+  "sections": [
+    {
+      "heading": "Personal Air Monitoring",
+      "body": [
+        "Personal sampling measures exposure in a worker\u2019s breathing zone.",
+        "It provides the most accurate representation of individual exposure."
+      ]
+    },
+    {
+      "heading": "Area Monitoring",
+      "body": [
+        "Area sampling measures contaminant levels in a general location.",
+        "It helps evaluate engineering controls and environmental conditions."
+      ]
+    },
+    {
+      "heading": "Choosing the Right Method",
+      "body": [
+        "Personal monitoring is required for exposure compliance decisions.",
+        "Area monitoring supplements exposure data and verifies controls."
+      ]
+    }
+  ],
+  "faqs": [],
+  "cta": {
+    "label": "See Air Monitoring Tools",
+    "href": "/air-monitoring-software"
+  }
+}

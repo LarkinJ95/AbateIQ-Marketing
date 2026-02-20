@@ -1,0 +1,35 @@
+{
+  "slug": "/resources/blog/how-to-prepare-for-osha-inspection",
+  "title": "How to Prepare for an OSHA Inspection",
+  "category": "OSHA Compliance",
+  "primaryKeyword": "OSHA inspection preparation",
+  "summary": "A practical checklist to prepare your job site and documentation for an OSHA inspection.",
+  "sections": [
+    {
+      "heading": "Documentation Readiness",
+      "body": [
+        "Ensure air monitoring records, training logs, and exposure assessments are accessible.",
+        "Incomplete documentation is a common citation."
+      ]
+    },
+    {
+      "heading": "Site Conditions",
+      "body": [
+        "Verify engineering controls, PPE, and housekeeping meet regulatory standards.",
+        "Inspectors often focus on visible hazards."
+      ]
+    },
+    {
+      "heading": "Employee Interviews",
+      "body": [
+        "Workers should understand hazards and protective measures.",
+        "Training records must match actual practices."
+      ]
+    }
+  ],
+  "faqs": [],
+  "cta": {
+    "label": "Centralize Your Compliance",
+    "href": "/demo"
+  }
+}
