@@ -210,7 +210,7 @@ export function SignInDialog({
                     setInfoMessage("");
                   }}
                 >
-                  Start free trial
+                  Start for Free Today
                 </button>
               </div>
             </form>
@@ -272,9 +272,9 @@ export function SignInDialog({
         {view === "trial" && (
           <>
             <DialogHeader>
-              <DialogTitle className="text-2xl">Start Your Free Trial</DialogTitle>
+              <DialogTitle className="text-2xl">Start for Free Today</DialogTitle>
               <DialogDescription>
-                Get 14 days of full access to AbateIQ - no credit card required
+                Create your AbateIQ account and start on the Free tier immediately.
               </DialogDescription>
             </DialogHeader>
 
@@ -338,7 +338,7 @@ export function SignInDialog({
                 className="w-full bg-[#fbbf24] hover:bg-[#f59e0b] text-black"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Creating account..." : "Start Free Trial"}
+                {isSubmitting ? "Creating account..." : "Start for Free Today"}
               </Button>
 
               <div className="text-center text-sm text-gray-600">

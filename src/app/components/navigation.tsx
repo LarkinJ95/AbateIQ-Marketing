@@ -31,6 +31,9 @@ export function Navigation({ onLoginClick, onStartTrialClick }: NavigationProps)
             <a href="#pricing" className="text-gray-300 hover:text-white transition">
               Pricing
             </a>
+            <a href="/resources" className="text-gray-300 hover:text-white transition">
+              Resources
+            </a>
             <a href="#demo" className="text-gray-300 hover:text-white transition">
               Demo
             </a>
@@ -52,7 +55,7 @@ export function Navigation({ onLoginClick, onStartTrialClick }: NavigationProps)
               className="bg-[#fbbf24] hover:bg-[#f59e0b] text-black"
               onClick={onStartTrialClick}
             >
-              Start Free Trial
+              Start for Free Today
             </Button>
           </div>
         </div>

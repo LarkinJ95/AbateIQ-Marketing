@@ -20,7 +20,7 @@ export function Hero({ onStartTrialClick, onViewPricingClick }: HeroProps) {
       <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="mb-6 text-4xl lg:text-6xl tracking-tight">
-            Full EHS Operations Platform for Industrial Hygiene Teams.
+            Industrial Hygiene Software for Asbestos, Air Monitoring & Compliance
           </h1>
           <p className="text-lg lg:text-xl text-gray-300 mb-8">
             Run monitoring, inspections, budgets, reporting, and admin controls from a single defensible system of record.

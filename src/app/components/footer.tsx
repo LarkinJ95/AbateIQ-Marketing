@@ -29,10 +29,13 @@ export function Footer() {
           <div>
             <h4 className="text-white mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
+              <li><a href="/resources" className="hover:text-[#fbbf24] transition">Resource Hub</a></li>
+              <li><a href="/resources/blog" className="hover:text-[#fbbf24] transition">Blog</a></li>
+              <li><a href="/resources/guides" className="hover:text-[#fbbf24] transition">Guides</a></li>
+              <li><a href="/resources/templates" className="hover:text-[#fbbf24] transition">Templates</a></li>
               <li><a href="https://docs.abateiq.com" className="hover:text-[#fbbf24] transition">Documentation</a></li>
-              <li><a href="https://abateiq.com/blog" className="hover:text-[#fbbf24] transition">Blog</a></li>
               <li><a href="mailto:support@abateiq.com" className="hover:text-[#fbbf24] transition">Support</a></li>
-              <li><a href="https://docs.abateiq.com/api" className="hover:text-[#fbbf24] transition">API Reference</a></li>
+              <li><a href="/ih-data-management-platform" className="hover:text-[#fbbf24] transition">IH Data Management Platform</a></li>
             </ul>
           </div>
           

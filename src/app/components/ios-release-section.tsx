@@ -43,7 +43,7 @@ export function IOSReleaseSection({
                 className="border-white text-white hover:bg-white hover:text-black bg-white/10"
                 onClick={onStartTrialClick}
               >
-                Start Free Trial Now
+                Start for Free Today
               </Button>
             </div>
           </div>
