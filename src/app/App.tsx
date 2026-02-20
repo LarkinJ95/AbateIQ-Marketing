@@ -1,21 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Navigation } from "./components/navigation";
-import { Hero } from "./components/hero";
-import { IOSReleaseSection } from "./components/ios-release-section";
-import { WaitlistDialog } from "./components/waitlist-dialog";
-import { ProblemSection } from "./components/problem-section";
-import { PlatformOverviewSection } from "./components/platform-overview-section";
-import { SolutionSection } from "./components/solution-section";
-import { MissingModulesSection } from "./components/missing-modules-section";
-import { BuiltForSection } from "./components/built-for-section";
-import { DemoSection } from "./components/demo-section";
-import { PricingSection } from "./components/pricing-section";
-import { FAQSection } from "./components/faq-section";
-import { ContactSection } from "./components/contact-section";
 import { Footer } from "./components/footer";
 import { SignInDialog, type ViewType } from "./components/sign-in-dialog";
 import { AppDashboard } from "./components/app-dashboard";
-import { HomeSeoSections } from "./components/home-seo-sections";
+import { HomepageRefresh } from "./components/homepage-refresh";
 import type { AuthSession } from "../lib/session";
 import { clearSession, readSession } from "../lib/session";
 import { getDashboardUrl } from "../lib/env";
@@ -50,7 +38,6 @@ function normalizePath(pathname: string) {
 export default function App() {
   const [authDialogOpen, setAuthDialogOpen] = useState(false);
   const [authDialogView, setAuthDialogView] = useState<ViewType>("signin");
-  const [waitlistDialogOpen, setWaitlistDialogOpen] = useState(false);
   const [session, setSession] = useState<AuthSession | null>(() => readSession());
   const [cmsPage, setCmsPage] = useState<SeoPageContent | null>(null);
   const [cmsBlogPost, setCmsBlogPost] = useState<BlogPost | null>(null);
@@ -92,14 +79,6 @@ export default function App() {
   const openAuthDialog = (view: ViewType) => {
     setAuthDialogView(view);
     setAuthDialogOpen(true);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const node = document.getElementById(sectionId);
-    if (!node) {
-      return;
-    }
-    node.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleAuthSuccess = (nextSession: AuthSession) => {
@@ -178,7 +157,7 @@ export default function App() {
           category="Homepage"
           path="/"
           titleOverride="AbateIQ | Industrial Hygiene Software for Asbestos, Air Monitoring & Compliance"
-          descriptionOverride="Industrial hygiene software for asbestos surveys, air monitoring, and OSHA compliance. Generate NEAs, manage samples, and streamline reporting with AbateIQ."
+          descriptionOverride="AbateIQ is industrial hygiene software for asbestos surveys, air monitoring, exposure tracking, and compliance reporting. Generate NEAs, manage samples, and stay audit-ready."
           emitCoreSchemas={false}
           breadcrumbs={[{ name: "Home", path: "/" }]}
         />
@@ -186,40 +165,14 @@ export default function App() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageEntityGraph) }}
         />
-        <Navigation
-          onStartTrialClick={() => openAuthDialog("trial")}
-        />
-        <Hero
-          onStartTrialClick={() => openAuthDialog("trial")}
-          onBookDemoClick={() => scrollToSection("contact")}
-        />
-        <HomeSeoSections />
-        <IOSReleaseSection
-          onNotifyClick={() => setWaitlistDialogOpen(true)}
-          onStartTrialClick={() => openAuthDialog("trial")}
-        />
-        <ProblemSection />
-        <PlatformOverviewSection />
-        <SolutionSection />
-        <MissingModulesSection />
-        <BuiltForSection />
-        <DemoSection />
-        <PricingSection
-          onStartTrialClick={() => openAuthDialog("trial")}
-          onContactSalesClick={() => scrollToSection("contact")}
-        />
-        <FAQSection />
-        <ContactSection />
+        <Navigation />
+        <HomepageRefresh />
         <Footer />
         <SignInDialog
           open={authDialogOpen}
           onOpenChange={setAuthDialogOpen}
           initialView={authDialogView}
           onAuthSuccess={handleAuthSuccess}
-        />
-        <WaitlistDialog
-          open={waitlistDialogOpen}
-          onOpenChange={setWaitlistDialogOpen}
         />
       </div>
     );

@@ -14,6 +14,13 @@
     "Track exposure data with threshold visibility for PEL, STEL, and TWA.",
     "Generate reporting outputs from one validated dataset."
   ],
+  {
+  "heading": "Why Defensible Air Monitoring Data Matters",
+  "body": [
+    "Air monitoring results are only useful if they are complete, traceable, and defensible. Missing calibration records, unclear task descriptions, or disconnected lab results can undermine compliance decisions.",
+    "AbateIQ links field data, calibrations, lab results, and exposure limits in one workflow, reducing documentation gaps and strengthening audit readiness."
+  ]
+}
   "regulatoryReferences": [
     "OSHA air sampling documentation expectations.",
     "EPA-aligned handling patterns for environmental monitoring records.",
@@ -24,7 +31,10 @@
     "Real-time exposure data management",
     "PEL/STEL exceedance alerts",
     "Automated report generation",
-    "Lab result integration"
+    "Lab result integration",
+    "Defensible audit trails",
+	"Breathing zone sample tracking",
+	"Area vs personal sample classification"
   ],
   "useCases": [
     "Industrial hygiene teams",
@@ -40,6 +50,10 @@
       "question": "Does AbateIQ support OSHA-focused air monitoring documentation?",
       "answer": "Yes. Workflows are structured to improve completeness, traceability, and audit readiness."
     }
+    {
+  "question": "How does AbateIQ improve defensibility?",
+  "answer": "By linking calibration records, task descriptions, and lab results to each sample, AbateIQ creates a complete audit trail."
+}
   ],
   "internalLinks": [
     {

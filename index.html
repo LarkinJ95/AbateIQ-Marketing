@@ -1,13 +1,28 @@
 
   <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en" class="light" data-theme="light">
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script>
+        (function () {
+          try {
+            var stored = localStorage.getItem("theme");
+            var theme = stored === "dark" || stored === "light" ? stored : "light";
+            var root = document.documentElement;
+            root.classList.remove("light", "dark");
+            root.classList.add(theme);
+            root.setAttribute("data-theme", theme);
+            if (!stored) {
+              localStorage.setItem("theme", "light");
+            }
+          } catch (_) {}
+        })();
+      </script>
       <title>AbateIQ</title>
     </head>
 
-    <body>
+    <body class="bg-background text-foreground">
       <div id="root"></div>
       <script type="module" src="/src/main.tsx"></script>
     </body>
