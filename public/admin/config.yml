@@ -3,7 +3,7 @@ backend:
   repo: LarkinJ95/AbateIQ-Marketing
   branch: main
   base_url: https://cms-auth.abateiq.com
-  auth_endpoint: /auth
+  auth_endpoint: /api/cms/auth
 
 local_backend: true
 publish_mode: editorial_workflow

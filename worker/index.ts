@@ -155,7 +155,7 @@ async function handleCmsAuth(url: URL, env: Env): Promise<Response> {
 
   const isPrivateRepo = Boolean(env.GITHUB_REPO_PRIVATE && env.GITHUB_REPO_PRIVATE !== "0");
   const scope = isPrivateRepo ? "repo,user" : "public_repo,user";
-  const redirectUri = `https://${url.hostname}/callback?provider=github`;
+  const redirectUri = `https://${url.hostname}/api/cms/callback?provider=github`;
   const state = randomHex(16);
 
   const githubAuthUrl = new URL("https://github.com/login/oauth/authorize");
@@ -184,7 +184,7 @@ async function handleCmsCallback(url: URL, env: Env): Promise<Response> {
     return createOauthCallbackHtml("error", { error: "Missing OAuth code." });
   }
 
-  const redirectUri = `https://${url.hostname}/callback?provider=github`;
+  const redirectUri = `https://${url.hostname}/api/cms/callback?provider=github`;
   const tokenResponse = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
     headers: {
@@ -1031,11 +1031,11 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    if (url.pathname === "/auth") {
+    if (url.pathname === "/auth" || url.pathname === "/api/cms/auth") {
       return handleCmsAuth(url, env);
     }
 
-    if (url.pathname === "/callback") {
+    if (url.pathname === "/callback" || url.pathname === "/api/cms/callback") {
       return handleCmsCallback(url, env);
     }
 
