@@ -1,0 +1,73 @@
+{
+  "slug": "what-is-negative-exposure-assessment",
+  "title": "What Is a Negative Exposure Assessment (NEA)?",
+  "category": "Industrial Hygiene",
+  "primaryKeyword": "negative exposure assessment",
+  "featuredImage": "",
+  "summary": "Learn what a Negative Exposure Assessment is, when it’s required, and how it protects workers and contractors under OSHA regulations.",
+  "sections": [
+    {
+      "heading": "What Is a Negative Exposure Assessment (NEA)?",
+      "body": [
+        "A Negative Exposure Assessment (NEA) is a documented determination that employee exposures to a hazardous substance are below the OSHA Permissible Exposure Limit (PEL) under specific work conditions.",
+        "NEAs are commonly used in asbestos, lead, silica, and other industrial hygiene programs to demonstrate that controls are effective and that certain regulatory requirements may be reduced."
+      ]
+    },
+    {
+      "heading": "Why NEAs Matter",
+      "body": [
+        "An NEA helps employers demonstrate compliance with OSHA standards, support safe work practices, and provide defensible documentation during inspections.",
+        "Under OSHA 29 CFR 1926.1101, employers may use an NEA to show asbestos exposures are below the PEL when proper controls are in place."
+      ]
+    },
+    {
+      "heading": "When Is an NEA Required?",
+      "body": [
+        "You may need an NEA when performing asbestos abatement, conducting lead paint removal, cutting silica-containing materials, introducing new processes, or responding to worker exposure concerns.",
+        "If work conditions change, the NEA must be reevaluated to ensure exposures remain below regulatory limits."
+      ]
+    },
+    {
+      "heading": "What an NEA Includes",
+      "body": [
+        "A complete NEA documents project and site information, descriptions of operations, engineering controls, air monitoring methods, sampling results, TWA calculations, and a final determination.",
+        "This documentation supports compliance and provides a defensible record of exposure evaluation."
+      ]
+    },
+    {
+      "heading": "Common Misconceptions",
+      "body": [
+        "An NEA does not eliminate safety requirements. Controls must remain in place, work practices must remain consistent, and reassessment is required if conditions change.",
+        "The NEA is valid only under the conditions observed during monitoring."
+      ]
+    },
+    {
+      "heading": "How AbateIQ Simplifies NEAs",
+      "body": [
+        "AbateIQ helps environmental professionals link air monitoring results directly to NEAs, auto-calculate TWAs, generate client-ready reports, and maintain defensible audit trails.",
+        "By centralizing data and workflows, AbateIQ reduces administrative burden while improving compliance confidence."
+      ]
+    },
+    {
+      "heading": "Final Thoughts",
+      "body": [
+        "A Negative Exposure Assessment is more than paperwork — it’s a critical tool for protecting workers, ensuring compliance, and demonstrating professional due diligence.",
+        "If your team performs hazardous material work, a clear and defensible NEA process is essential."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does an NEA eliminate the need for PPE?",
+      "answer": "No. PPE requirements depend on regulations and site conditions. An NEA may support adjustments but does not automatically remove PPE requirements."
+    },
+    {
+      "question": "How long is an NEA valid?",
+      "answer": "An NEA remains valid only while work conditions, materials, and controls remain unchanged. Any changes require reevaluation."
+    }
+  ],
+  "cta": {
+    "label": "See How AbateIQ Simplifies NEAs",
+    "href": "/demo"
+  }
+}
